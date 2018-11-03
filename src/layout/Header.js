@@ -8,7 +8,7 @@ const style = {
   textAlign: 'center',
   backgroundColor: 'black',
   color: 'white',
-  height: '50px',
+  height: '80px',
   display: 'flex',
   paddingLeft: '15px',
   paddingRight: '15px',
