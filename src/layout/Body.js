@@ -5,7 +5,6 @@ import GridFilm from '../components/GridFilm';
 export default () => {
   return (
     <div>
-      <div>Body</div>
       <GridFilm />
     </div>
   );

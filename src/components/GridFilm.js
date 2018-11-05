@@ -26,6 +26,7 @@ export default class GridFilm extends Component {
       .then(result => {
         console.log(result); //test data,
         this.setState({
+          //on ajoute les nouveaux films au films qu'on a déjà
           movies: [...this.state.movies, ...result.results],
           actualPage: result.page,
           totalPageRequest: result.total_pages,
@@ -34,6 +35,20 @@ export default class GridFilm extends Component {
   };
 
   render() {
-    return <div>GridFilm</div>;
+    return (
+      <table>
+        <tbody>
+          {this.state.movies.map(function(item, key) {
+            return (
+              <tr key={key}>
+                <td>{item.title}</td>
+                <td>{item.id}</td>
+                <td>{item.popularity}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
   }
 }
