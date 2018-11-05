@@ -11,6 +11,8 @@ import {
 const style = {
   grid: {
     margin: 'auto',
+    marginTop: '50px',
+    marginBottom: '50px',
     width: '80%',
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -61,6 +63,15 @@ export default class GridFilm extends Component {
         {this.state.movies.map(function(item, key) {
           return (
             <div style={style.gridElement} key={key}>
+              <img
+                src={
+                  item.poster_path
+                    ? `${IMAGE_BASE_URL}${POSTER_SIZE}${item.poster_path}`
+                    : ''
+                }
+                alt=""
+              />
+              <br />
               {item.title}
               <br />
               {item.id}
