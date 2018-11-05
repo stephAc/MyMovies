@@ -8,6 +8,27 @@ import {
   MOVIE_POPULAR,
 } from './DataConfig';
 
+const style = {
+  grid: {
+    margin: 'auto',
+    width: '80%',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '10px',
+    border: '2px solid #f76707',
+    borderRadius: '5px',
+    backgroundColor: '#fff4e6',
+    textAlign: 'center',
+  },
+  gridElement: {
+    border: '2px solid #ffa94d',
+    borderRadius: '5px',
+    backgroundColor: '#ffd8a8',
+    padding: '1em',
+    color: '#d9480f',
+  },
+};
+
 export default class GridFilm extends Component {
   state = {
     movies: [],
@@ -36,19 +57,19 @@ export default class GridFilm extends Component {
 
   render() {
     return (
-      <table>
-        <tbody>
-          {this.state.movies.map(function(item, key) {
-            return (
-              <tr key={key}>
-                <td>{item.title}</td>
-                <td>{item.id}</td>
-                <td>{item.popularity}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div style={style.grid}>
+        {this.state.movies.map(function(item, key) {
+          return (
+            <div style={style.gridElement} key={key}>
+              {item.title}
+              <br />
+              {item.id}
+              <br />
+              {item.popularity}
+            </div>
+          );
+        })}
+      </div>
     );
   }
 }
