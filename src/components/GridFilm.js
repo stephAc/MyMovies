@@ -70,6 +70,7 @@ export default class GridFilm extends Component {
                     : ''
                 }
                 alt=""
+                width='100%'
               />
               <br />
               {item.title}
