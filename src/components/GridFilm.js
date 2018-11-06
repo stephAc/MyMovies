@@ -26,7 +26,6 @@ const style = {
     border: '2px solid #ffa94d',
     borderRadius: '5px',
     backgroundColor: '#ffd8a8',
-    padding: '1em',
     color: '#d9480f',
   },
 };
@@ -39,10 +38,45 @@ export default class GridFilm extends Component {
   };
 
   componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
     const moviePopularRequest = `${API_URL}${MOVIE_POPULAR}${API_KEY}&page=1`;
     this.getMoviePopular(moviePopularRequest);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  //Charger plus de composant avec le scroll
+  loadMorePoster = () => {
+    let moviePopularRequest = `${API_URL}${MOVIE_POPULAR}${API_KEY}&page=${this
+      .state.actualPage + 1}`;
+    this.getMoviePopular(moviePopularRequest);
+  };
+
+  //Handle pour le scroll en bas de page
+  handleScroll = () => {
+    const windowHeight =
+      'innerHeight' in window
+        ? window.innerHeight
+        : document.documentElement.offsetHeight;
+    const body = document.body;
+    const html = document.documentElement;
+    const docHeight = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight,
+    );
+    const windowBottom = windowHeight + window.pageYOffset;
+
+    if (windowBottom >= docHeight) {
+      this.loadMorePoster();
+    }
+  };
+
+  //Methode pour Json
   getMoviePopular = moviePopularRequest => {
     fetch(moviePopularRequest)
       .then(result => result.json())
@@ -67,10 +101,10 @@ export default class GridFilm extends Component {
                 src={
                   item.poster_path
                     ? `${IMAGE_BASE_URL}${POSTER_SIZE}${item.poster_path}`
-                    : ''
+                    : '../assets/logos/app_logo.bmp'
                 }
                 alt=""
-                width='100%'
+                width="100%"
               />
               <br />
               {item.title}

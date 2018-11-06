@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Log from '../components/Log';
 import AppLogo from '../components/AppLogo';
 import SearchBar from '../components/SearchBar';
 import TmdbLogo from '../components/TmdbLogo';
@@ -21,6 +21,7 @@ export default () => (
   <div style={style}>
     <AppLogo />
     <SearchBar />
+    <Log />
     <TmdbLogo />
   </div>
 );
