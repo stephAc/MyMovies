@@ -35,6 +35,7 @@ export default class GridFilm extends Component {
     movies: [],
     actualPage: 0,
     totalPageRequest: 0,
+    fetching: false,
   };
 
   componentDidMount() {
@@ -49,9 +50,11 @@ export default class GridFilm extends Component {
 
   //Charger plus de composant avec le scroll
   loadMorePoster = () => {
-    let moviePopularRequest = `${API_URL}${MOVIE_POPULAR}${API_KEY}&page=${this
-      .state.actualPage + 1}`;
-    this.getMoviePopular(moviePopularRequest);
+    if (!this.state.fetching) {
+      let moviePopularRequest = `${API_URL}${MOVIE_POPULAR}${API_KEY}&page=${this
+        .state.actualPage + 1}`;
+      this.getMoviePopular(moviePopularRequest);
+    }
   };
 
   //Handle pour le scroll en bas de page
@@ -78,16 +81,19 @@ export default class GridFilm extends Component {
 
   //Methode pour Json
   getMoviePopular = moviePopularRequest => {
+    this.setState({ fetching: true });
+
     fetch(moviePopularRequest)
       .then(result => result.json())
       .then(result => {
         console.log(result); //test data,
-        this.setState({
-          //on ajoute les nouveaux films au films qu'on a déjà
-          movies: [...this.state.movies, ...result.results],
+        this.setState(prevState => ({
+          //on ajoute les nouveaux films aux films qu'on a déjà
+          movies: [...prevState.movies, ...result.results],
           actualPage: result.page,
           totalPageRequest: result.total_pages,
-        });
+          fetching: false,
+        }));
       });
   };
 
