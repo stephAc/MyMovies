@@ -10,7 +10,7 @@ const style = {
   right: '50px',
   bottom: '50px',
   position: 'fixed',
-  diplay: 'none',
+  display: 'none',
 };
 
 export default () => (
@@ -18,6 +18,17 @@ export default () => (
     >>
   </button>
 );
+
+window.onscroll = () => {
+  if (
+    document.body.scrollTop > 200 ||
+    document.documentElement.scrollTop > 200
+  ) {
+    document.getElementById('returnTopBtn').style.display = 'block';
+  } else {
+    document.getElementById('returnTopBtn').style.display = 'none';
+  }
+};
 
 const topFunction = () => {
   document.body.scrollTop = 0; // For Safari
