@@ -14,8 +14,15 @@ const style = {
 };
 
 export default () => (
-  <button style={style} type="button" onClick={topFunction} id="returnTopBtn">
-    >>
+  <button
+    style={style}
+    type="button"
+    onClick={topFunction}
+    onMouseOver={hover}
+    onMouseOut={notHover}
+    id="returnTopBtn"
+  >
+    ^<br />^
   </button>
 );
 
@@ -28,6 +35,14 @@ window.onscroll = () => {
   } else {
     document.getElementById('returnTopBtn').style.display = 'none';
   }
+};
+
+const notHover = e => {
+  e.target.style.opacity = '0.5';
+};
+
+const hover = e => {
+  e.target.style.opacity = '1';
 };
 
 const topFunction = () => {
