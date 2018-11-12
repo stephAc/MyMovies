@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import {
   API_URL,
   API_KEY,
-  IMAGE_BASE_URL,
+  //IMAGE_BASE_URL,
   // BACKDROP_SIZE,
-  POSTER_SIZE,
+  //POSTER_SIZE,
   MOVIE_POPULAR,
 } from './DataConfig';
 import ReturnTopPage from './ReturnTopPage';
+import Poster from './Poster';
 
 const style = {
   grid: {
@@ -104,21 +105,7 @@ export default class GridFilmHome extends Component {
         {this.state.movies.map(function(item, key) {
           return (
             <div style={style.gridElement} key={key}>
-              <img
-                src={
-                  item.poster_path
-                    ? `${IMAGE_BASE_URL}${POSTER_SIZE}${item.poster_path}`
-                    : '../assets/logos/app_logo.bmp'
-                }
-                alt=""
-                width="100%"
-              />
-              <br />
-              {item.title}
-              <br />
-              {item.id}
-              <br />
-              {item.popularity}
+              <Poster film={item} />
             </div>
           );
         })}
