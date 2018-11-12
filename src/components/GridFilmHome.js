@@ -3,10 +3,11 @@ import {
   API_URL,
   API_KEY,
   IMAGE_BASE_URL,
-  BACKDROP_SIZE,
+  // BACKDROP_SIZE,
   POSTER_SIZE,
   MOVIE_POPULAR,
 } from './DataConfig';
+import ReturnTopPage from './ReturnTopPage';
 
 const style = {
   grid: {
@@ -30,7 +31,7 @@ const style = {
   },
 };
 
-export default class GridFilm extends Component {
+export default class GridFilmHome extends Component {
   state = {
     movies: [],
     actualPage: 0,
@@ -121,6 +122,7 @@ export default class GridFilm extends Component {
             </div>
           );
         })}
+        <ReturnTopPage />
       </div>
     );
   }

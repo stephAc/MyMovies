@@ -1,8 +1,8 @@
 import React from 'react';
-import Log from '../components/Log';
 import AppLogo from '../components/AppLogo';
 import SearchBar from '../components/SearchBar';
 import TmdbLogo from '../components/TmdbLogo';
+import { Link } from 'react-router-dom';
 
 const style = {
   textAlign: 'center',
@@ -21,7 +21,7 @@ export default () => (
   <div style={style}>
     <AppLogo />
     <SearchBar />
-    <Log />
+    <Link to={`/connexion`}>Connexion</Link>
     <TmdbLogo />
   </div>
 );
