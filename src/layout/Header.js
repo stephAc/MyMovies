@@ -1,7 +1,6 @@
 import React from 'react';
 import AppLogo from '../components/AppLogo';
 import SearchBar from '../components/SearchBar';
-import TmdbLogo from '../components/TmdbLogo';
 import { Link } from 'react-router-dom';
 
 const style = {
@@ -22,6 +21,5 @@ export default () => (
     <AppLogo />
     <SearchBar />
     <Link to={`/connexion`}>Connexion</Link>
-    <TmdbLogo />
   </div>
 );

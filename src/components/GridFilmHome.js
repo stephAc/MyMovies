@@ -17,18 +17,9 @@ const style = {
     marginBottom: '50px',
     width: '80%',
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(4, 1fr)',
     gridGap: '10px',
-    border: '2px solid #f76707',
-    borderRadius: '5px',
-    backgroundColor: '#fff4e6',
     textAlign: 'center',
-  },
-  gridElement: {
-    border: '2px solid #ffa94d',
-    borderRadius: '5px',
-    backgroundColor: '#ffd8a8',
-    color: '#d9480f',
   },
 };
 
@@ -104,7 +95,7 @@ export default class GridFilmHome extends Component {
       <div style={style.grid}>
         {this.state.movies.map(function(item, key) {
           return (
-            <div style={style.gridElement} key={key}>
+            <div key={key}>
               <Poster film={item} />
             </div>
           );

@@ -1,4 +1,5 @@
 import React from 'react';
+import TmdbLogo from '../components/TmdbLogo';
 
 const style = {
   width: '100%',
@@ -11,4 +12,9 @@ const style = {
   padding: '5px',
 };
 
-export default () => <div style={style}>v1.0.0 © Stéphane ACHARI</div>;
+export default () => (
+  <div style={style}>
+    <TmdbLogo />
+    v1.0.0 © Stéphane ACHARI
+  </div>
+);

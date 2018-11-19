@@ -26,12 +26,6 @@ export default class Poster extends Component {
             width="100%"
             // onClick={this.handleClic}
           />
-          <br />
-          {this.props.film.title}
-          <br />
-          {this.props.film.id}
-          <br />
-          {this.props.film.popularity}
         </Link>
       </div>
     );
