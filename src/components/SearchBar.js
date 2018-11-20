@@ -1,6 +1,6 @@
 import React from 'react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from './DataConfig';
+import { withRouter } from 'react-router-dom';
 
 const style = {
   textAlign: 'left',
@@ -12,17 +12,15 @@ const style = {
   marginRight: '10px',
 };
 
-// https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
 class SearchBar extends React.Component {
   state = {
     searchField: '',
+    needResultResearch: 'false',
   };
 
   handleEntree = event => {
     if (event.key === 'Enter') {
-      alert(this.state.searchField);
-      const req =
-        '${API_URL}search/movie?api_key=${API_KEY}&query=${this.state.searchField}';
+      this.props.history.push(`/film/research/${this.state.searchField}`);
     }
   };
 
@@ -44,4 +42,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);
