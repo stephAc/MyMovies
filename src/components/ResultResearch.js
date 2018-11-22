@@ -9,7 +9,6 @@ export default class ResultResearch extends Component {
   };
 
   componentDidMount() {
-    console.log('la');
     const req = `${API_URL}search/movie${API_KEY}&query=${
       this.state.searchField
     }&page=1&include_adult=false`;
@@ -25,7 +24,6 @@ export default class ResultResearch extends Component {
   render() {
     return (
       <div>
-        <div>la</div>
         {this.state.movie.length &&
           this.state.movie.map(function(item, key) {
             return (

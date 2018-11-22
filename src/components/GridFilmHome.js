@@ -9,6 +9,7 @@ import {
 } from './DataConfig';
 import ReturnTopPage from './ReturnTopPage';
 import Poster from './Poster';
+import Log from './Log/Log';
 
 const style = {
   grid: {
@@ -92,16 +93,19 @@ export default class GridFilmHome extends Component {
 
   render() {
     return (
-      <div style={style.grid}>
-        {this.state.movies.map(function(item, key) {
-          return (
-            <div key={key}>
-              <Poster film={item} />
-            </div>
-          );
-        })}
+      <React.Fragment>
+        <Log />
+        <div style={style.grid}>
+          {this.state.movies.map(function(item, key) {
+            return (
+              <div key={key}>
+                <Poster film={item} />
+              </div>
+            );
+          })}
+        </div>
         <ReturnTopPage />
-      </div>
+      </React.Fragment>
     );
   }
 }

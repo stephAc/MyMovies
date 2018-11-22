@@ -21,5 +21,15 @@ export default () => (
     <AppLogo />
     <SearchBar />
     <Link to={`/connexion`}>Connexion</Link>
+    <button onClick={handleConnexion}>Connexion</button>
   </div>
 );
+
+function handleConnexion() {
+  var popLog = document.getElementById('logForm');
+
+  popLog.style.display =
+    popLog.style.display === 'none' || popLog.style.display === ''
+      ? 'block'
+      : 'none';
+}

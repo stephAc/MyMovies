@@ -1,7 +1,7 @@
 import React from 'react';
 import GridFilmHome from '../components/GridFilmHome';
 import { Switch, Route } from 'react-router-dom';
-import Log from '../components/Log';
+import Log from '../components/Log/Log';
 import FilmDescription from '../components/FilmDescription';
 import ResultResearch from '../components/ResultResearch';
 
