@@ -1,16 +1,6 @@
 import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './SearchBar.css';
 import { withRouter } from 'react-router-dom';
-
-const style = {
-  textAlign: 'left',
-  borderRadius: '20px 10px',
-  height: '40px',
-  width: '800px',
-  paddingLeft: '15px',
-  marginLeft: '10px',
-  marginRight: '10px',
-};
 
 class SearchBar extends React.Component {
   state = {
@@ -31,7 +21,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <input
-        style={style}
+        className="searchBar"
         type="text"
         placeholder="Search.."
         value={this.state.searchField}

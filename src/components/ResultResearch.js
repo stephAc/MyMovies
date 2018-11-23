@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Poster from './Poster';
 import { API_URL, API_KEY } from './DataConfig';
-
+import Log from './Login/Log';
 export default class ResultResearch extends Component {
   state = {
     searchField: this.props.match.params.query,
@@ -23,7 +23,8 @@ export default class ResultResearch extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <Log />
         {this.state.movie.length &&
           this.state.movie.map(function(item, key) {
             return (
@@ -32,7 +33,7 @@ export default class ResultResearch extends Component {
               </div>
             );
           })}
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -5,18 +5,6 @@ const BACKDROP_SIZE = 'w1280';
 const POSTER_SIZE = 'w500';
 const MOVIE_POPULAR = 'movie/popular';
 
-// const requestURL = 'movie/550?api_key=';
-
-// var request = new XMLHttpRequest();
-
-// request.open('GET', requestURL);
-// request.responseType = 'json';
-// request.send();
-
-// request.onload = function() {
-//   var requestReply = request.response;
-// };
-
 export {
   API_URL,
   API_KEY,

@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  margin: 50px;
+  padding: 15px;
+}
+.childContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.poster {
+  max-height: 400px;
+  min-width: 210px;
+}
+.filmTitle {
+  /* background: #4d4d4d;
+  margin: -30px -30px 30px -30px;
+  color: white; */
+  align-self: center;
+  font-size: 35px;
+  font-style: oblique;
+  font-weight: bold;
+}
+/* .detailContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */

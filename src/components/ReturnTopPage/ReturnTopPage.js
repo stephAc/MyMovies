@@ -1,17 +1,5 @@
 import React, { Component } from 'react';
-
-const style = {
-  borderRadius: '50%',
-  height: '50px',
-  width: '50px',
-  border: 'none',
-  boxShadow: '0px 0px 10px 4px rgba(119, 119, 119, 0.75)',
-  opacity: '0.5',
-  right: '50px',
-  bottom: '50px',
-  position: 'fixed',
-  display: 'none',
-};
+import './ReturnTopPage.css';
 
 export default class ReturnTopPage extends Component {
   state = {};
@@ -51,14 +39,14 @@ export default class ReturnTopPage extends Component {
   render() {
     return (
       <button
-        style={style}
+        className="btnReturnTop"
         type="button"
         onClick={this.topFunction}
         onMouseOver={this.hover}
         onMouseOut={this.notHover}
         id="returnTopBtn"
       >
-        ^<br />^
+        ^
       </button>
     );
   }

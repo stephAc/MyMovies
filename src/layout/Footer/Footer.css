@@ -1,0 +1,10 @@
+.footerStyle {
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+}

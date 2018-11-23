@@ -1,0 +1,12 @@
+.headerStyle {
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 80px;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}

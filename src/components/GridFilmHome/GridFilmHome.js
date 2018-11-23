@@ -6,23 +6,11 @@ import {
   // BACKDROP_SIZE,
   //POSTER_SIZE,
   MOVIE_POPULAR,
-} from './DataConfig';
-import ReturnTopPage from './ReturnTopPage';
-import Poster from './Poster';
-import Log from './Log/Log';
-
-const style = {
-  grid: {
-    margin: 'auto',
-    marginTop: '50px',
-    marginBottom: '50px',
-    width: '80%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
-    gridGap: '10px',
-    textAlign: 'center',
-  },
-};
+} from '../DataConfig';
+import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
+import Poster from '../Poster';
+import Log from '../Login/Log';
+import './GridFilmHome.css';
 
 export default class GridFilmHome extends Component {
   state = {
@@ -95,7 +83,7 @@ export default class GridFilmHome extends Component {
     return (
       <React.Fragment>
         <Log />
-        <div style={style.grid}>
+        <div className="grid">
           {this.state.movies.map(function(item, key) {
             return (
               <div key={key}>
