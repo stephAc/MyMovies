@@ -9,7 +9,9 @@ export default () => (
     <AppLogo />
     <SearchBar />
     {/* <Link to={`/connexion`}>Connexion</Link> example link*/}
-    <button onClick={handleConnexion}>Connexion</button>
+    <button className="btnStyle" onClick={handleConnexion}>
+      Connexion
+    </button>
   </div>
 );
 
