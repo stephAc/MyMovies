@@ -1,6 +1,7 @@
 .searchBar {
   text-align: left;
   border-radius: 20px 10px;
+  border: none;
   height: 40px;
   width: 800px;
   padding-left: 15px;
