@@ -24,3 +24,10 @@
 .btnStyle:hover {
   cursor: pointer;
 }
+
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}

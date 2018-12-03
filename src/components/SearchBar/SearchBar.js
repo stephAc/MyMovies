@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 import { withRouter } from 'react-router-dom';
+import { IoIosSearch } from 'react-icons/io';
 
 class SearchBar extends React.Component {
   state = {
@@ -9,7 +10,7 @@ class SearchBar extends React.Component {
   };
 
   handleEntree = event => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.type === 'click') {
       this.props.history.push(`/film/research/${this.state.searchField}`);
     }
   };
@@ -17,6 +18,10 @@ class SearchBar extends React.Component {
   handleInputChange = event => {
     this.setState({ searchField: event.target.value });
   };
+
+  // handleClick = event => {
+  //   event.target.style = 'border: 2px solid gold;';
+  // };
 
   render() {
     return (
@@ -29,7 +34,13 @@ class SearchBar extends React.Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleEntree}
         />
-        <button className="btnSearch" type="submit" />
+        <button
+          id="btnReSearch"
+          className="btnSearch"
+          onClick={this.handleEntree}
+        >
+          <IoIosSearch className="iconSearch" />
+        </button>
       </React.Fragment>
     );
   }

@@ -5,7 +5,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import './Header.css';
 
 export default () => (
-  <div className="headerStyle">
+  <div className="headerStyle flexContainer">
     <AppLogo />
     <SearchBar />
     {/* <Link to={`/connexion`}>Connexion</Link> example link*/}
