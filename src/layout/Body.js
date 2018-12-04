@@ -3,7 +3,7 @@ import GridFilmHome from '../components/GridFilmHome/GridFilmHome';
 import { Switch, Route } from 'react-router-dom';
 // import Log from '../components/Log/Log';
 import FilmDescription from '../components/FilmDescription/FilmDescription';
-import ResultResearch from '../components/ResultResearch';
+import ResultResearch from '../components/ResultResearch/ResultResearch';
 
 export default () => {
   return (

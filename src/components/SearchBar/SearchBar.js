@@ -10,8 +10,11 @@ class SearchBar extends React.Component {
   };
 
   handleEntree = event => {
-    if (event.key === 'Enter' || event.type === 'click') {
-      this.props.history.push(`/film/research/${this.state.searchField}`);
+    if (this.state.searchField !== '') {
+      if (event.key === 'Enter' || event.type === 'click') {
+        this.props.history.push(`/film/research/${this.state.searchField}`);
+        this.setState({ searchField: '' });
+      }
     }
   };
 

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import Poster from './Poster';
-import { API_URL, API_KEY } from './DataConfig';
-import Log from './Login/Log';
+import Poster from '../Poster';
+import { API_URL, API_KEY } from '../DataConfig';
+import Log from '../Login/Log';
+import './ResultResearch.css';
+import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
+
 export default class ResultResearch extends Component {
   state = {
     searchField: this.props.match.params.query,
@@ -25,14 +28,17 @@ export default class ResultResearch extends Component {
     return (
       <React.Fragment>
         <Log />
-        {this.state.movie.length &&
-          this.state.movie.map(function(item, key) {
-            return (
-              <div key={key}>
-                <Poster film={item} />
-              </div>
-            );
-          })}
+        <div className="grid">
+          {this.state.movie.length &&
+            this.state.movie.map(function(item, key) {
+              return (
+                <div key={key}>
+                  <Poster film={item} />
+                </div>
+              );
+            })}
+        </div>
+        <ReturnTopPage />
       </React.Fragment>
     );
   }
