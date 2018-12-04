@@ -6,7 +6,6 @@ import { IoIosSearch } from 'react-icons/io';
 class SearchBar extends React.Component {
   state = {
     searchField: '',
-    needResultResearch: 'false',
   };
 
   handleEntree = event => {

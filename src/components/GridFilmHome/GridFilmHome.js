@@ -83,7 +83,7 @@ export default class GridFilmHome extends Component {
     return (
       <React.Fragment>
         <Log />
-        <div className="grid">
+        <div className="gridHome">
           {this.state.movies.map(function(item, key) {
             return (
               <div key={key}>

@@ -4,16 +4,34 @@ import { API_URL, API_KEY } from '../DataConfig';
 import Log from '../Login/Log';
 import './ResultResearch.css';
 import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
+import { withRouter } from 'react-router-dom';
 
-export default class ResultResearch extends Component {
+// export default
+class ResultResearch extends Component {
   state = {
-    searchField: this.props.match.params.query,
     movie: [],
+    urlQuery: '',
   };
 
   componentDidMount() {
+    this.setState(
+      () => ({ urlQuery: this.props.match.params.query }),
+      () => this.fetchData(),
+    );
+  }
+
+  componentDidUpdate() {
+    if (this.props.match.params.query !== this.state.urlQuery) {
+      this.setState(
+        () => ({ urlQuery: this.props.match.params.query }),
+        () => this.fetchData(),
+      );
+    }
+  }
+
+  fetchData = () => {
     const req = `${API_URL}search/movie${API_KEY}&query=${
-      this.state.searchField
+      this.state.urlQuery
     }&page=1&include_adult=false`;
 
     fetch(req)
@@ -22,7 +40,7 @@ export default class ResultResearch extends Component {
         console.log(result);
         this.setState({ movie: result.results });
       });
-  }
+  };
 
   render() {
     return (
@@ -43,3 +61,5 @@ export default class ResultResearch extends Component {
     );
   }
 }
+
+export default withRouter(ResultResearch);

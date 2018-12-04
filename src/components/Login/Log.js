@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Log.css';
+import { Link } from 'react-router-dom';
 
 export default class Log extends Component {
   state = {
@@ -17,6 +18,7 @@ export default class Log extends Component {
   handleSubmit = event => {
     alert('Log name : ' + this.state.logName + ' Pwd ' + this.state.logPwd);
     event.preventDefault();
+    this.setState({ logName: '', logPwd: '' });
   };
 
   render() {
@@ -47,6 +49,9 @@ export default class Log extends Component {
               value="S'identifier"
               onClick={this.handleSubmit}
             />
+            <Link to={``}>
+              <div className="accountLink">S'inscrire ?</div>
+            </Link>
           </form>
         </div>
       </div>
