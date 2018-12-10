@@ -46,16 +46,28 @@ class ResultResearch extends Component {
     return (
       <React.Fragment>
         <Log />
-        <div className="grid">
-          {this.state.movie.length &&
-            this.state.movie.map(function(item, key) {
+        {!!this.state.movie.length ? (
+          <div className="grid">
+            {this.state.movie.map(function(item, key) {
               return (
                 <div key={key}>
                   <Poster film={item} />
                 </div>
               );
             })}
-        </div>
+          </div>
+        ) : (
+          <div className="centerDiv">
+            <img
+              src="/pics/error.png"
+              alt="Image not found"
+              height="300"
+              width="300"
+              style={{ borderRadius: 10 }}
+            />
+          </div>
+        )}
+
         <ReturnTopPage />
       </React.Fragment>
     );

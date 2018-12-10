@@ -2,10 +2,12 @@ import React from 'react';
 import './SearchBar.css';
 import { withRouter } from 'react-router-dom';
 import { IoIosSearch } from 'react-icons/io';
+import { API_URL, API_KEY, MOVIE_POPULAR } from '../DataConfig';
 
 class SearchBar extends React.Component {
   state = {
     searchField: '',
+    srchInput: '',
   };
 
   handleEntree = event => {
@@ -14,8 +16,28 @@ class SearchBar extends React.Component {
         this.props.history.push(`/film/research/${this.state.searchField}`);
         this.setState({ searchField: '' });
       }
+      // } else if (this.state.searchField.length >= 2) {
+      //   this.getMoviePopular();
+      // }
     }
   };
+
+  // getMoviePopular = () => {
+  //   let inputRequest = `${API_URL}${MOVIE_POPULAR}${API_KEY}&page=${this.state
+  //     .actualPage + 1}`;
+
+  //   fetch(inputRequest)
+  //     .then(result => result.json())
+  //     .then(result => {
+  //       console.log(result); //test data,
+  //       this.setState(prevState => ({
+  //         //on ajoute les nouveaux films aux films qu'on a déjà
+  //         actualPage: result.page,
+  //         totalPageRequest: result.total_pages,
+  //         fetching: false,
+  //       }));
+  //     });
+  // };
 
   handleInputChange = event => {
     this.setState({ searchField: event.target.value });
@@ -35,6 +57,7 @@ class SearchBar extends React.Component {
           value={this.state.searchField}
           onChange={this.handleInputChange}
           onKeyPress={this.handleEntree}
+          list={this.state.srchInput}
         />
         <button
           id="btnReSearch"
