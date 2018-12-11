@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IMAGE_BASE_URL, POSTER_SIZE } from './DataConfig';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../DataConfig';
 import { Link } from 'react-router-dom';
 
 export default class Poster extends Component {
@@ -23,7 +23,7 @@ export default class Poster extends Component {
                 : '../assets/logos/app_logo.bmp'
             }
             alt=""
-            width="100%"
+            width="95%"
             // onClick={this.handleClic}
           />
         </Link>

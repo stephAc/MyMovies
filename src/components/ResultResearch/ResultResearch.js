@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Poster from '../Poster';
+import Poster from '../Poster/Poster';
 import { API_URL, API_KEY } from '../DataConfig';
 import Log from '../Login/Log';
 import './ResultResearch.css';
@@ -50,7 +50,7 @@ class ResultResearch extends Component {
           <div className="grid">
             {this.state.movie.map(function(item, key) {
               return (
-                <div key={key}>
+                <div className="posterHover" key={key}>
                   <Poster film={item} />
                 </div>
               );

@@ -8,7 +8,7 @@ import {
   MOVIE_POPULAR,
 } from '../DataConfig';
 import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
-import Poster from '../Poster';
+import Poster from '../Poster/Poster';
 import Log from '../Login/Log';
 import './GridFilmHome.css';
 
@@ -86,7 +86,7 @@ export default class GridFilmHome extends Component {
         <div className="gridHome">
           {this.state.movies.map(function(item, key) {
             return (
-              <div key={key}>
+              <div className="posterHover" key={key}>
                 <Poster film={item} />
               </div>
             );

@@ -9,13 +9,25 @@
   text-align: center;
 }
 
+.posterHover:hover {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
 @media screen and (max-width: 1000px) {
+  .gridHome {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 670px) {
   .gridHome {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 500px) {
   .gridHome {
     grid-template-columns: repeat(1, 1fr);
   }
