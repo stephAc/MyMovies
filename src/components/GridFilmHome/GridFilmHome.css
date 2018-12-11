@@ -4,15 +4,15 @@
   margin-bottom: 50px;
   width: 80%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
   text-align: center;
 }
 
-.posterHover:hover {
-  -moz-transform: scale(1.05);
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
+@media screen and (max-width: 1500px) {
+  .gridHome {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media screen and (max-width: 1000px) {

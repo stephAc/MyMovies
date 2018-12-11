@@ -4,7 +4,7 @@
   margin-bottom: 50px;
   width: 80%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
   text-align: center;
 }
@@ -12,6 +12,12 @@
 .centerDiv {
   margin-top: 150px;
   text-align: center;
+}
+
+@media screen and (max-width: 1500px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media screen and (max-width: 1000px) {

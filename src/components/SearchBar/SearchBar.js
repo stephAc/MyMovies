@@ -20,16 +20,15 @@ class SearchBar extends React.Component {
   };
 
   handleInputChange = event => {
-    this.setState({ searchField: event.target.value });
-    if (event.target.value.length >= 1) {
-      this.getMoviePopular();
+    const { value } = event.target;
+    this.setState({ searchField: value });
+    if (value.length >= 1) {
+      this.getMoviePopular(value);
     }
   };
 
-  getMoviePopular = () => {
-    let inputRequest = `${API_URL}search/movie${API_KEY}&query=${
-      this.state.searchField
-    }&page=1&include_adult=false`;
+  getMoviePopular = searchField => {
+    let inputRequest = `${API_URL}search/movie${API_KEY}&query=${searchField}&page=1&include_adult=false`;
 
     fetch(inputRequest)
       .then(result => result.json())
@@ -71,8 +70,8 @@ class SearchBar extends React.Component {
 
         {srchInput.length > 0 ? (
           <datalist id="srchInputList">
-            {srchInput.map(item => {
-              return <option value={item} />;
+            {srchInput.map((item, index) => {
+              return <option key={index} value={item} />;
             })}
           </datalist>
         ) : (

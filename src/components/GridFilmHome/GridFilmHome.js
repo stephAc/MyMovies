@@ -56,7 +56,7 @@ export default class GridFilmHome extends Component {
     );
     const windowBottom = windowHeight + window.pageYOffset;
 
-    if (windowBottom >= docHeight) {
+    if (windowBottom >= docHeight - 20) {
       this.loadMorePoster();
     }
   };
@@ -86,7 +86,7 @@ export default class GridFilmHome extends Component {
         <div className="gridHome">
           {this.state.movies.map(function(item, key) {
             return (
-              <div className="posterHover" key={key}>
+              <div key={key}>
                 <Poster film={item} />
               </div>
             );

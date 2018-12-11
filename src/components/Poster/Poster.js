@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../DataConfig';
 import { Link } from 'react-router-dom';
+import './Poster.css';
 
 export default class Poster extends Component {
   state = {};
@@ -24,6 +25,7 @@ export default class Poster extends Component {
             }
             alt=""
             width="95%"
+            className="posterHover"
             // onClick={this.handleClic}
           />
         </Link>
