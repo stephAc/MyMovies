@@ -5,14 +5,24 @@ import './Header.css';
 import BtnHamburger from '../../components/BtnHamburger/BtnHamburger';
 
 export default () => (
-  <div className="headerStyle">
-    <AppLogo />
-    <SearchBar />
-    <button className="btnStyle" onClick={handleConnexion}>
-      Connexion
-    </button>
-    <BtnHamburger />
-  </div>
+  <nav className="headerStyle">
+    <ul className="flexContainer">
+      <li>
+        <AppLogo />
+      </li>
+      <li>
+        <SearchBar />
+      </li>
+      <li>
+        <button className="btnStyle" onClick={handleConnexion}>
+          Connexion
+        </button>
+      </li>
+      <li>
+        <BtnHamburger />
+      </li>
+    </ul>
+  </nav>
 );
 
 function handleConnexion() {

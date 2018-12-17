@@ -56,7 +56,7 @@ class SearchBar extends React.Component {
     const { searchField, srchInput } = this.state;
 
     return (
-      <div>
+      <div className="flexContainerSearch">
         <input
           className="searchBar"
           type="text"
