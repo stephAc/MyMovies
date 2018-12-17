@@ -50,7 +50,7 @@ class ResultResearch extends Component {
           <div className="grid">
             {this.state.movie.map(function(item, key) {
               return (
-                <div className="posterHover" key={key}>
+                <div key={key}>
                   <Poster film={item} />
                 </div>
               );

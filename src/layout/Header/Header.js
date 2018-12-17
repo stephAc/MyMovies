@@ -1,17 +1,17 @@
 import React from 'react';
 import AppLogo from '../../components/AppLogo';
 import SearchBar from '../../components/SearchBar/SearchBar';
-// import { Link } from 'react-router-dom';
 import './Header.css';
+import BtnHamburger from '../../components/BtnHamburger/BtnHamburger';
 
 export default () => (
-  <div className="headerStyle flexContainer">
+  <div className="headerStyle">
     <AppLogo />
     <SearchBar />
-    {/* <Link to={`/connexion`}>Connexion</Link> example link*/}
     <button className="btnStyle" onClick={handleConnexion}>
       Connexion
     </button>
+    <BtnHamburger />
   </div>
 );
 

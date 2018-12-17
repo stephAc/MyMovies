@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 import { withRouter } from 'react-router-dom';
-import { IoIosSearch, IoIosCloudyNight } from 'react-icons/io';
+import { IoIosSearch } from 'react-icons/io';
 import { API_URL, API_KEY } from '../DataConfig';
 
 class SearchBar extends React.Component {
@@ -56,7 +56,7 @@ class SearchBar extends React.Component {
     const { searchField, srchInput } = this.state;
 
     return (
-      <React.Fragment>
+      <div>
         <input
           className="searchBar"
           type="text"
@@ -85,7 +85,7 @@ class SearchBar extends React.Component {
         >
           <IoIosSearch className="iconSearch" />
         </button>
-      </React.Fragment>
+      </div>
     );
   }
 }

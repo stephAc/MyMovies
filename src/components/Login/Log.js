@@ -25,7 +25,7 @@ export default class Log extends Component {
     return (
       <div>
         <div className="formStyle" id="logForm">
-          <h2 className="title">Login to your account</h2>
+          <h2 className="title">Connexion</h2>
           <form>
             <input
               className="styleBox"
@@ -33,7 +33,7 @@ export default class Log extends Component {
               name="logName"
               value={this.state.logName}
               onChange={this.handleChange}
-              placeholder="Full Name"
+              placeholder="Identifiant"
             />
             <input
               className="styleBox"
