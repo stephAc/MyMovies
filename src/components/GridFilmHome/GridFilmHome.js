@@ -11,6 +11,7 @@ import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
 import Poster from '../Poster/Poster';
 import Log from '../Login/Log';
 import './GridFilmHome.css';
+import SideBar from '../SearchBar/SearchBar';
 
 export default class GridFilmHome extends Component {
   state = {
@@ -92,6 +93,7 @@ export default class GridFilmHome extends Component {
             );
           })}
         </div>
+        <SideBar />
         <ReturnTopPage />
       </React.Fragment>
     );

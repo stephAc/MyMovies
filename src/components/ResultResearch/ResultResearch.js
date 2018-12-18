@@ -60,7 +60,7 @@ class ResultResearch extends Component {
           <div className="centerDiv">
             <img
               src="/pics/error.png"
-              alt="Image not found"
+              alt="Film not found"
               height="300"
               width="300"
               style={{ borderRadius: 10 }}
