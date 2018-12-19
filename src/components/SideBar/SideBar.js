@@ -6,7 +6,7 @@ export default class SideBar extends Component {
 
   render() {
     return (
-      <div className="sideBar">
+      <div className="sideBar" id="sideBar">
         <button>CLOSE</button>
         <ul>
           <li>Home</li>

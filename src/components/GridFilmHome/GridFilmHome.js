@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
   API_URL,
   API_KEY,
@@ -11,7 +11,6 @@ import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
 import Poster from '../Poster/Poster';
 import Log from '../Login/Log';
 import './GridFilmHome.css';
-import SideBar from '../SearchBar/SearchBar';
 
 export default class GridFilmHome extends Component {
   state = {
@@ -82,7 +81,7 @@ export default class GridFilmHome extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Fragment>
         <Log />
         <div className="gridHome">
           {this.state.movies.map(function(item, key) {
@@ -93,9 +92,8 @@ export default class GridFilmHome extends Component {
             );
           })}
         </div>
-        <SideBar />
         <ReturnTopPage />
-      </React.Fragment>
+      </Fragment>
     );
   }
 }
