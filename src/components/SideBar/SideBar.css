@@ -1,6 +1,6 @@
 .sideBar {
   margin-top: 80px;
-  width: 0px;
+  width: 20%;
   height: 95vh;
   position: fixed;
   right: 0;
@@ -8,4 +8,31 @@
   transition: width 0.5s;
   z-index: 800;
   box-shadow: 0px 3px 5px black;
+}
+
+.btnSideBar {
+  background: black;
+  color: aliceblue;
+  border: none;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.btnSideBar:hover {
+  cursor: pointer;
+  -moz-transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+.backArrIcon {
+  font-size: 50px;
+}
+
+.ulSideBar {
+  padding-left: 0px;
+  margin-top: 50px;
+  list-style: none;
 }
