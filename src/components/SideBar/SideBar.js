@@ -25,7 +25,7 @@ class SideBar extends Component {
           <li>
             <button
               className="btnSideBar"
-              onClick={() => this.handleGenreResearch('Action')}
+              onClick={() => this.handleGenreResearch(28)} //Action
             >
               Action
             </button>
@@ -34,7 +34,7 @@ class SideBar extends Component {
             <button
               className="btnSideBar"
               id="adventure"
-              onClick={() => this.handleGenreResearch('Adventure')}
+              onClick={() => this.handleGenreResearch(12)} //Adventure
             >
               Adventure
             </button>
@@ -43,7 +43,7 @@ class SideBar extends Component {
             <button
               className="btnSideBar"
               id="animation"
-              onClick={() => this.handleGenreResearch('Animation')}
+              onClick={() => this.handleGenreResearch(16)} //Animation
             >
               Animation
             </button>
@@ -52,7 +52,7 @@ class SideBar extends Component {
             <button
               className="btnSideBar"
               id="comedy"
-              onClick={() => this.handleGenreResearch('Comedy')}
+              onClick={() => this.handleGenreResearch(35)} //Comedy
             >
               Comedy
             </button>
@@ -61,7 +61,7 @@ class SideBar extends Component {
             <button
               className="btnSideBar"
               id="horror"
-              onClick={() => this.handleGenreResearch('Horror')}
+              onClick={() => this.handleGenreResearch(27)} //Horror
             >
               Horror
             </button>

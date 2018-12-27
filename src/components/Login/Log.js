@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Log.css';
 import { Link } from 'react-router-dom';
-
+import { IoIosClose } from 'react-icons/io';
 export default class Log extends Component {
   state = {
     logName: '',
@@ -21,11 +21,21 @@ export default class Log extends Component {
     this.setState({ logName: '', logPwd: '' });
   };
 
+  handleClose = () => {
+    document.getElementById('logForm').style.display = 'none';
+  };
+
   render() {
     return (
       <div>
         <div className="formStyle" id="logForm">
-          <h2 className="title">Connexion</h2>
+          <h2 className="title flexRow">
+            Connexion
+            <button className="btnClose" onClick={this.handleClose}>
+              <IoIosClose className="iconCloseLog" />
+            </button>
+          </h2>
+
           <form>
             <input
               className="styleBox"

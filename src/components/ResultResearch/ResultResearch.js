@@ -16,7 +16,6 @@ class ResultResearch extends Component {
 
   componentDidMount() {
     if (this.props.match.params.query !== undefined) {
-      console.log('A');
       this.setState(
         () => ({
           urlQuery: this.props.match.params.query,
@@ -24,7 +23,6 @@ class ResultResearch extends Component {
         () => this.fetchData(0),
       );
     } else {
-      console.log('B');
       this.setState(
         () => ({
           genre: this.props.match.params.genre,
@@ -35,9 +33,6 @@ class ResultResearch extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.urlQuery);
-    console.log(this.state.genre);
-    console.log('C');
     if (this.props.match.params.query !== this.state.urlQuery) {
       this.setState(
         () => ({
@@ -63,7 +58,6 @@ class ResultResearch extends Component {
         req = `${API_URL}search/movie${API_KEY}&query=${
           this.state.urlQuery
         }&page=1&include_adult=false`;
-        console.log('D');
         fetch(req)
           .then(result => result.json())
           .then(result => {
@@ -75,10 +69,9 @@ class ResultResearch extends Component {
           });
         break;
       case 1:
-        req = `${API_URL}discover/movie${API_KEY}&sort_by=popularity.desc&include_adult=false&without_genres=${
+        req = `${API_URL}discover/movie${API_KEY}&sort_by=popularity.desc&include_adult=false&with_genres=${
           this.state.genre
         }`;
-        console.log('E');
         fetch(req, { mode: 'cors' })
           .then(result => result.json())
           .then(result => {
