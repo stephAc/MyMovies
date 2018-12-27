@@ -11,6 +11,7 @@ import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
 import Poster from '../Poster/Poster';
 import Log from '../Login/Log';
 import './GridFilmHome.css';
+import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
 
 export default class GridFilmHome extends Component {
   state = {
@@ -83,6 +84,7 @@ export default class GridFilmHome extends Component {
     return (
       <Fragment>
         <Log />
+        <BtnSlideBar />
         <div className="gridHome">
           {this.state.movies.map(function(item, key) {
             return (

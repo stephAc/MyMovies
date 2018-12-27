@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './SearchBar.css';
 import { withRouter } from 'react-router-dom';
 import { IoIosSearch } from 'react-icons/io';
 import { API_URL, API_KEY } from '../DataConfig';
 
-class SearchBar extends React.Component {
+class SearchBar extends Component {
   state = {
     searchField: '',
     srchInput: [],
