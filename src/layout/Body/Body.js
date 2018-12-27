@@ -13,8 +13,9 @@ export default () => {
       <Switch>
         <Route exact path="/" component={GridFilmHome} />
         {/* <Route exact path="/connexion" component={Log} /> */}
-        <Route path="/film/description/:idFilm" component={FilmDescription} />
-        <Route path="/film/research/:query" component={ResultResearch} />
+        <Route exact path="/film/description/:idFilm" component={FilmDescription} />
+        <Route exact path="/film/research/:query" component={ResultResearch} />
+        <Route exact path="/film/research/genre/:genre" component={ResultResearch} />
       </Switch>
       <SideBar />
     </div>

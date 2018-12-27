@@ -10,36 +10,89 @@ import { withRouter } from 'react-router-dom';
 class ResultResearch extends Component {
   state = {
     movie: [],
-    urlQuery: '',
+    urlQuery: undefined,
+    genre: undefined,
   };
 
   componentDidMount() {
-    this.setState(
-      () => ({ urlQuery: this.props.match.params.query }),
-      () => this.fetchData(),
-    );
-  }
-
-  componentDidUpdate() {
-    if (this.props.match.params.query !== this.state.urlQuery) {
+    if (this.props.match.params.query !== undefined) {
+      console.log('A');
       this.setState(
-        () => ({ urlQuery: this.props.match.params.query }),
-        () => this.fetchData(),
+        () => ({
+          urlQuery: this.props.match.params.query,
+        }),
+        () => this.fetchData(0),
+      );
+    } else {
+      console.log('B');
+      this.setState(
+        () => ({
+          genre: this.props.match.params.genre,
+        }),
+        () => this.fetchData(1),
       );
     }
   }
 
-  fetchData = () => {
-    const req = `${API_URL}search/movie${API_KEY}&query=${
-      this.state.urlQuery
-    }&page=1&include_adult=false`;
+  componentDidUpdate() {
+    console.log(this.state.urlQuery);
+    console.log(this.state.genre);
+    console.log('C');
+    if (this.props.match.params.query !== this.state.urlQuery) {
+      this.setState(
+        () => ({
+          urlQuery: this.props.match.params.query,
+        }),
+        () => this.fetchData(0),
+      );
+    } else if (this.props.match.params.genre !== this.state.genre) {
+      this.setState(
+        () => ({
+          genre: this.props.match.params.genre,
+        }),
+        () => this.fetchData(1),
+      );
+    }
+  }
 
-    fetch(req)
-      .then(result => result.json())
-      .then(result => {
-        console.log(result);
-        this.setState({ movie: result.results });
-      });
+  fetchData = codeRef => {
+    let req = '';
+
+    switch (codeRef) {
+      case 0:
+        req = `${API_URL}search/movie${API_KEY}&query=${
+          this.state.urlQuery
+        }&page=1&include_adult=false`;
+        console.log('D');
+        fetch(req)
+          .then(result => result.json())
+          .then(result => {
+            console.log(result);
+            this.setState({ movie: result.results });
+          })
+          .catch(function(error) {
+            console.log('Request failed', error);
+          });
+        break;
+      case 1:
+        req = `${API_URL}discover/movie${API_KEY}&sort_by=popularity.desc&include_adult=false&without_genres=${
+          this.state.genre
+        }`;
+        console.log('E');
+        fetch(req, { mode: 'cors' })
+          .then(result => result.json())
+          .then(result => {
+            console.log(result);
+            this.setState({ movie: result.results });
+          })
+          .catch(function(error) {
+            console.log('Request failed', error);
+          });
+        break;
+      default:
+    }
+
+    console.log(req);
   };
 
   render() {
