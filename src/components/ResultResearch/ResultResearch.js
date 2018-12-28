@@ -5,6 +5,7 @@ import Log from '../Login/Log';
 import './ResultResearch.css';
 import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
 import { withRouter } from 'react-router-dom';
+import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
 
 // export default
 class ResultResearch extends Component {
@@ -92,6 +93,7 @@ class ResultResearch extends Component {
     return (
       <React.Fragment>
         <Log />
+        <BtnSlideBar />
         {!!this.state.movie.length ? (
           <div className="grid">
             {this.state.movie.map(function(item, key) {

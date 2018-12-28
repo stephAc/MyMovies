@@ -7,7 +7,14 @@ export default class BtnHamburger extends Component {
 
   handleClick = () => {
     let sideBar = document.getElementById('sideBar');
-    sideBar.style.width = sideBar.style.width === '0px' ? '20%' : '0px';
+    let btnOpenSideBar = document.getElementById('btnOpenSideBar');
+
+    sideBar.style.width = sideBar.style.width === '0px' ? '150px' : '0px';
+    if (sideBar.style.width === '0px') {
+      btnOpenSideBar.style.display = 'block';
+    } else {
+      btnOpenSideBar.style.display = 'none';
+    }
   };
 
   render() {

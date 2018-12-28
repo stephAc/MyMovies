@@ -7,8 +7,10 @@ export default class BtnSlideBar extends Component {
 
   handleOpenSlideBar = () => {
     let sideBar = document.getElementById('sideBar');
-    sideBar.style.width = sideBar.style.width === '0px' ? '20%' : '0px';
     let btnOpenSideBar = document.getElementById('btnOpenSideBar');
+
+    sideBar.style.width = sideBar.style.width === '0px' ? '150px' : '0px';
+
     btnOpenSideBar.style.display = 'none';
   };
 

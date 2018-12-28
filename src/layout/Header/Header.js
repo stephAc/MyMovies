@@ -5,14 +5,10 @@ import './Header.css';
 import BtnHamburger from '../../components/BtnHamburger/BtnHamburger';
 
 export default () => (
-  <nav className="headerStyle">
+  <nav className="headerStyle flexContainer">
+    <AppLogo />
+    <SearchBar />
     <ul className="flexContainer">
-      <li>
-        <AppLogo />
-      </li>
-      <li>
-        <SearchBar />
-      </li>
       <li>
         <button className="btnStyle" onClick={handleConnexion}>
           Connexion

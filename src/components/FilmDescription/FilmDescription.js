@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from '../DataConfig';
 import './FilmDescription.css';
 import Log from '../Login/Log';
+import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
 
 export default class FilmDescription extends Component {
   state = {
@@ -30,6 +31,7 @@ export default class FilmDescription extends Component {
     return (
       <React.Fragment>
         <Log />
+        <BtnSlideBar />
         <div className="container">
           <img
             className="poster"

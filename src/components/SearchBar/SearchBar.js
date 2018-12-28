@@ -58,7 +58,7 @@ class SearchBar extends Component {
     return (
       <div className="flexContainerSearch">
         <input
-          className="searchBar"
+          className="searchBar searchBarDisplay"
           type="text"
           placeholder="Search.."
           value={searchField}
@@ -80,7 +80,7 @@ class SearchBar extends Component {
 
         <button
           id="btnReSearch"
-          className="btnSearch"
+          className="btnSearch searchBarDisplay"
           onClick={this.handleEntree}
         >
           <IoIosSearch className="iconSearch" />

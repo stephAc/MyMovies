@@ -9,6 +9,10 @@
   background-color: white;
 }
 
+.logDisplay {
+  display: block;
+}
+
 .btnSearch {
   height: 42px;
   min-width: 50px;
@@ -36,6 +40,10 @@
   flex-wrap: nowrap;
 }
 
+.searchBarDisplay {
+  display: block;
+}
+
 @media screen and (max-width: 1150px) {
   .searchBar {
     width: 500px;
@@ -51,5 +59,11 @@
 @media screen and (max-width: 650px) {
   .searchBar {
     width: 150px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .searchBarDisplay {
+    display: none;
   }
 }
