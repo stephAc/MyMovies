@@ -1,0 +1,53 @@
+.formDisplay {
+  margin-top: 130px;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 10px;
+  height: 60vh;
+  box-shadow: 0 3px 3px gray;
+}
+
+.titleStyle {
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: gold;
+  height: 60px;
+  margin: 0px;
+  padding: 10px;
+  box-shadow: 0 3px 3px black;
+}
+
+.inputStyle {
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.submitStyle {
+  margin-top: 10px;
+  height: 40px;
+  font-style: oblique;
+  font-size: 20px;
+  background-color: #2cbbbb;
+  border: none;
+  box-shadow: 0 3px 3px gray;
+  cursor: pointer;
+}
+
+.accountLink {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submitStyle:active {
+  background-color: gold;
+  box-shadow: 0 3px 3px black;
+  transform: translateY(4px);
+}

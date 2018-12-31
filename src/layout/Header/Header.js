@@ -24,8 +24,10 @@ export default () => (
 function handleConnexion() {
   var popLog = document.getElementById('logForm');
 
-  popLog.style.display =
-    popLog.style.display === 'none' || popLog.style.display === ''
-      ? 'block'
-      : 'none';
+  if (document.location.href !== 'http://localhost:3000/film/login') {
+    popLog.style.display =
+      popLog.style.display === 'none' || popLog.style.display === ''
+        ? 'block'
+        : 'none';
+  }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SideBar.css';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 class SideBar extends Component {
   state = {};
 
@@ -26,6 +27,14 @@ class SideBar extends Component {
         </button>
 
         <ul className="ulSideBar">
+          <li>
+            <Link to={`/film/login`}>
+              <button className="btnSideBar displayBtnSide">Connexion</button>
+            </Link>
+          </li>
+          <li>
+            <button className="btnSideBar displayBtnSide">Search</button>
+          </li>
           <li>
             <button
               className="btnSideBar"

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './Log.css';
 import { Link } from 'react-router-dom';
-import { IoIosClose } from 'react-icons/io';
-export default class Log extends Component {
+import './LoginPage.css';
+import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
+
+export default class LoginPage extends Component {
   state = {
     logName: '',
     logPwd: '',
@@ -27,17 +28,13 @@ export default class Log extends Component {
 
   render() {
     return (
-      <div className="formStyle" id="logForm">
-        <h2 className="title flexRow">
-          Connexion
-          <button className="btnClose" onClick={this.handleClose}>
-            <IoIosClose className="iconCloseLog" />
-          </button>
-        </h2>
+      <React.Fragment>
+        <BtnSlideBar />
 
-        <form>
+        <form className="formDisplay">
+          <h2 className="titleStyle">Connexion</h2>
           <input
-            className="styleBox"
+            className="inputStyle"
             type="text"
             name="logName"
             value={this.state.logName}
@@ -45,7 +42,7 @@ export default class Log extends Component {
             placeholder="Identifiant"
           />
           <input
-            className="styleBox"
+            className="inputStyle"
             type="password"
             name="logPwd"
             value={this.state.logPwd}
@@ -53,7 +50,7 @@ export default class Log extends Component {
             placeholder="Mot de passe"
           />
           <input
-            className="btnSubmit"
+            className="submitStyle"
             type="submit"
             value="S'identifier"
             onClick={this.handleSubmit}
@@ -62,7 +59,7 @@ export default class Log extends Component {
             <div className="accountLink">S'inscrire ?</div>
           </Link>
         </form>
-      </div>
+      </React.Fragment>
     );
   }
 }
