@@ -58,7 +58,7 @@ export default class Log extends Component {
             value="S'identifier"
             onClick={this.handleSubmit}
           />
-          <Link to={``}>
+          <Link to={`/mymovies/inscription`}>
             <div className="accountLink">S'inscrire ?</div>
           </Link>
         </form>

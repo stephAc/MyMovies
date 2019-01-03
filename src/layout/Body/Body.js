@@ -7,6 +7,7 @@ import ResultResearch from '../../components/ResultResearch/ResultResearch';
 import SideBar from '../../components/SideBar/SideBar';
 import LoginPage from '../../components/LoginPage/LoginPage';
 import './Body.css';
+import InscriptionForm from '../../components/InscriptionForm/InscriptionForm';
 
 export default () => {
   return (
@@ -26,6 +27,7 @@ export default () => {
           path="/film/research/genre/:genre"
           component={ResultResearch}
         />
+        <Route exact path="/mymovies/inscription" component={InscriptionForm} />
       </Switch>
       <SideBar />
     </div>
