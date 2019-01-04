@@ -12,11 +12,13 @@ class SideBar extends Component {
 
     sideBar.style.width = sideBar.style.width === '0px' ? '150px' : '0px';
 
-    btnOpenSideBar.style.display = 'block';
+    btnOpenSideBar.style.display =
+      sideBar.style.width === '0px' ? 'block' : 'none';
   };
 
   handleGenreResearch = genre => {
     this.props.history.push(`/film/research/genre/${genre}`);
+    this.handleClickHide();
   };
 
   render() {

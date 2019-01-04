@@ -3,6 +3,8 @@ import AppLogo from '../../components/AppLogo';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import './Header.css';
 import BtnHamburger from '../../components/BtnHamburger/BtnHamburger';
+import { IoMdContact } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 export default () => (
   <nav className="headerStyle flexContainer">
@@ -13,6 +15,11 @@ export default () => (
         <button className="btnStyle" onClick={handleConnexion}>
           Connexion
         </button>
+      </li>
+      <li>
+        <Link to={`/film/login`}>
+          <IoMdContact className="iconAvatar" />
+        </Link>
       </li>
       <li>
         <BtnHamburger />

@@ -15,6 +15,11 @@
   list-style: none;
 }
 
+.iconAvatar {
+  font-size: x-large;
+  color: white;
+}
+
 .btnStyle {
   background-color: black;
   border: none;
