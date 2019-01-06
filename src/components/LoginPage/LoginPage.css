@@ -1,5 +1,5 @@
 .formDisplay {
-  margin-top: 130px;
+  margin-top: 110px;
   display: flex;
   width: 80%;
   flex-direction: column;
@@ -28,6 +28,10 @@
   font-size: 15px;
   border: none;
   border-bottom: 1px solid gray;
+}
+
+.inputStyle:focus {
+  border-bottom: 1px solid blue;
 }
 
 .submitStyle {

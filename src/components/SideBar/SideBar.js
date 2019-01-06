@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './SideBar.css';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 class SideBar extends Component {
   state = {};
 
@@ -10,15 +9,13 @@ class SideBar extends Component {
     let sideBar = document.getElementById('sideBar');
     let btnOpenSideBar = document.getElementById('btnOpenSideBar');
 
-    sideBar.style.width = sideBar.style.width === '0px' ? '150px' : '0px';
+    sideBar.style.width = '0px';
 
-    btnOpenSideBar.style.display =
-      sideBar.style.width === '0px' ? 'block' : 'none';
+    btnOpenSideBar.style.display = 'block';
   };
 
   handleGenreResearch = genre => {
     this.props.history.push(`/film/research/genre/${genre}`);
-    this.handleClickHide();
   };
 
   render() {
@@ -27,16 +24,7 @@ class SideBar extends Component {
         <button className="btnSideBar" onClick={this.handleClickHide}>
           <IoIosArrowRoundForward className="backArrIcon" />
         </button>
-
         <ul className="ulSideBar">
-          <li>
-            <Link to={`/film/login`}>
-              <button className="btnSideBar displayBtnSide">Connexion</button>
-            </Link>
-          </li>
-          <li>
-            <button className="btnSideBar displayBtnSide">Search</button>
-          </li>
           <li>
             <button
               className="btnSideBar"

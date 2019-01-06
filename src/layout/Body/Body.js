@@ -8,6 +8,7 @@ import SideBar from '../../components/SideBar/SideBar';
 import LoginPage from '../../components/LoginPage/LoginPage';
 import './Body.css';
 import InscriptionForm from '../../components/InscriptionForm/InscriptionForm';
+import SearchPage from '../../components/SearchPage/SearchPage';
 
 export default () => {
   return (
@@ -27,6 +28,7 @@ export default () => {
           path="/film/research/genre/:genre"
           component={ResultResearch}
         />
+        <Route exact path="/film/search" component={SearchPage} />
         <Route exact path="/mymovies/inscription" component={InscriptionForm} />
       </Switch>
       <SideBar />

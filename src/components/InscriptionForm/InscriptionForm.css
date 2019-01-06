@@ -7,7 +7,6 @@
   margin-right: auto;
   margin-top: 130px;
   background-color: white;
-  opacity: 0.9;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -34,6 +33,10 @@
   margin-right: auto;
   border: none;
   border-bottom: 1px solid black;
+}
+
+.inputStyleInscription:focus {
+  border-bottom: 1px solid blue;
 }
 
 .btnStyleInscription {

@@ -10,11 +10,8 @@ export default class BtnHamburger extends Component {
     let btnOpenSideBar = document.getElementById('btnOpenSideBar');
 
     sideBar.style.width = sideBar.style.width === '0px' ? '150px' : '0px';
-    if (sideBar.style.width === '0px') {
-      btnOpenSideBar.style.display = 'block';
-    } else {
-      btnOpenSideBar.style.display = 'none';
-    }
+    btnOpenSideBar.style.display =
+      sideBar.style.width === '0px' ? 'block' : 'none';
   };
 
   render() {

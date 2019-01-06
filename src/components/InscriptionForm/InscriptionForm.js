@@ -19,14 +19,13 @@ export default class InscriptionForm extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = () => {
     alert(
       this.state.nom +
         this.state.prenom +
         this.state.email +
         this.state.password,
     );
-    event.preventDefault();
   };
 
   render() {

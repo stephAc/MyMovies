@@ -3,7 +3,7 @@ import AppLogo from '../../components/AppLogo';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import './Header.css';
 import BtnHamburger from '../../components/BtnHamburger/BtnHamburger';
-import { IoMdContact } from 'react-icons/io';
+import { IoMdContact, IoIosSearch } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
 export default () => (
@@ -15,6 +15,11 @@ export default () => (
         <button className="btnStyle" onClick={handleConnexion}>
           Connexion
         </button>
+      </li>
+      <li>
+        <Link to={`/film/search`}>
+          <IoIosSearch className="iconAvatar" />
+        </Link>
       </li>
       <li>
         <Link to={`/film/login`}>
