@@ -3,18 +3,24 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from '../DataConfig';
 import './FilmDescription.css';
 import Log from '../Login/Log';
 import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
+import Actors from '../Actors/Actors';
 
 export default class FilmDescription extends Component {
   state = {
     id: this.props.match.params.idFilm,
     film: '',
+    actors: '',
   };
 
   componentDidMount() {
     const requestFilm = `${API_URL}movie/${
       this.state.id
     }${API_KEY}&language=en-US`;
+    const requestActors = `${API_URL}movie/${
+      this.state.id
+    }/credits?api_key=22232165bd2420fd47b1eb7520ab231c`;
     this.getRequestFilm(requestFilm);
+    this.getRequestActors(requestActors);
   }
 
   getRequestFilm = requestFilm => {
@@ -23,6 +29,17 @@ export default class FilmDescription extends Component {
       .then(result => {
         this.setState({
           film: result,
+        });
+      });
+  };
+
+  getRequestActors = requestActors => {
+    fetch(requestActors)
+      .then(result => result.json())
+      .then(result => {
+        console.log(result.cast);
+        this.setState({
+          actors: result.cast,
         });
       });
   };
@@ -51,6 +68,23 @@ export default class FilmDescription extends Component {
             <div>Date {this.state.film.release_date}</div>
             <div>{this.state.film.overview}</div>
           </div>
+        </div>
+        <div>
+          {!!this.state.actors.length ? (
+            <div>
+              {this.state.actors.map(function(item, key) {
+                return (
+                  <div key={key}>
+                    <Actors actor={item} />
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div>
+              <p>NO ACTORS</p>
+            </div>
+          )}
         </div>
       </React.Fragment>
     );
