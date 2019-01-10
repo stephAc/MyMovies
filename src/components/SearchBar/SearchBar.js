@@ -10,6 +10,8 @@ class SearchBar extends Component {
     srchInput: [],
   };
 
+  timeOut = null;
+
   handleEntree = event => {
     if (this.state.searchField !== '') {
       if (event.key === 'Enter' || event.type === 'click') {
@@ -20,14 +22,18 @@ class SearchBar extends Component {
   };
 
   handleInputChange = event => {
-    const { value } = event.target;
-    this.setState({ searchField: value });
-    if (value.length >= 1) {
-      this.getMoviePopular(value);
-    }
+    this.setState({ searchField: event.target.value });
+
+    //On met un time out pour eviter une requete a chaque input
+    clearTimeout(this.timeOut);
+    this.timeOut = setTimeout(() => {
+      if (this.state.searchField.length >= 1) {
+        this.getMovie(this.state.searchField);
+      }
+    }, 500);
   };
 
-  getMoviePopular = searchField => {
+  getMovie = searchField => {
     let inputRequest = `${API_URL}search/movie${API_KEY}&query=${searchField}&page=1&include_adult=false`;
 
     fetch(inputRequest)
