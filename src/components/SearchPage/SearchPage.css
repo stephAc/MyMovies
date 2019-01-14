@@ -17,9 +17,6 @@
 
 .inputSearchStyle:focus {
   width: 70%;
-  /* border-left: 1px solid blue;
-  border-top: 1px solid blue;
-  border-bottom: 1px solid blue; */
 }
 
 .buttonSearchStyle {
@@ -35,16 +32,7 @@
 
 .buttonSearchStyle:hover {
   cursor: pointer;
-  -moz-transform: scale(1.02);
-  -webkit-transform: scale(1.02);
-  transform: scale(1.02);
 }
-
-/* .buttonSearchStyle:focus {
-  border-right: 1px solid blue;
-  border-top: 1px solid blue;
-  border-bottom: 1px solid blue;
-} */
 
 .containerSearch {
   margin-top: 150px;
