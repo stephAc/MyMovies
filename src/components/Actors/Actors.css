@@ -1,0 +1,16 @@
+.containerActor {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  height: 200px;
+  width: 300px;
+  margin: 10px;
+}
+
+.nameStyleContainer {
+  width: 100%;
+  min-width: 100px;
+  padding: 10px;
+  background: white;
+  text-align: center;
+}

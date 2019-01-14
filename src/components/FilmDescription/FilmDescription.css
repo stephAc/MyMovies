@@ -2,32 +2,56 @@
   display: flex;
   flex-direction: row;
   background-color: white;
-  margin: 120px;
+  height: auto;
+  width: 80%;
   padding: 15px;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
 }
 .childContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 100%;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 .poster {
-  max-height: 400px;
+  max-height: 350px;
   min-width: 210px;
 }
 .filmTitle {
-  /* background: #4d4d4d;
-  margin: -30px -30px 30px -30px;
-  color: white; */
   align-self: center;
   font-size: 35px;
   font-style: oblique;
   font-weight: bold;
 }
-/* .detailContainer {
+
+.gridActor {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
   display: flex;
+  width: 80%;
   flex-direction: row;
-  justify-content: space-between;
-} */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    flex-wrap: wrap;
+    padding: 5px;
+  }
+  .poster {
+    width: 250px;
+  }
+  .container {
+    width: 60%;
+    min-width: 280px;
+  }
+  .filmTitle {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 25px;
+  }
+}

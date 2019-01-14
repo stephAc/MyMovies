@@ -7,18 +7,22 @@ export default class Actors extends Component {
 
   render() {
     return (
-      <div>
+      <div className="containerActor">
         <img
           src={
             this.props.actor.profile_path
               ? `${IMAGE_BASE_URL}${POSTER_SIZE_SMALL}${
                   this.props.actor.profile_path
                 }`
-              : ''
+              : '/pics/no_image.png'
           }
           alt=""
+          width="154px"
         />
-        <p>name</p>
+        <div className="nameStyleContainer">
+          <p>{this.props.actor.name}</p> <br />
+          <p>Character : {this.props.actor.character}</p>
+        </div>
       </div>
     );
   }

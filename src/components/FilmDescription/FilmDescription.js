@@ -46,7 +46,7 @@ export default class FilmDescription extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <Log />
         <BtnSlideBar />
         <div className="container">
@@ -57,36 +57,39 @@ export default class FilmDescription extends Component {
                 ? `${IMAGE_BASE_URL}${POSTER_SIZE}${
                     this.state.film.poster_path
                   }`
-                : '../assets/logos/app_logo.bmp'
+                : '/pics/error.png'
             }
             alt=""
             width="400px"
           />
           <div className="childContainer">
-            <div className="filmTitle">{this.state.film.title}</div>
-            <div>Score {this.state.film.vote_average}</div>
-            <div>Date {this.state.film.release_date}</div>
-            <div>{this.state.film.overview}</div>
+            <p className="filmTitle">{this.state.film.title}</p>
+            <p>
+              Note : {this.state.film.vote_average} Date :{' '}
+              {this.state.film.release_date}
+            </p>
+
+            <p />
+            <br />
+            <p>{this.state.film.overview}</p>
           </div>
         </div>
-        <div>
-          {!!this.state.actors.length ? (
-            <div>
-              {this.state.actors.map(function(item, key) {
-                return (
-                  <div key={key}>
-                    <Actors actor={item} />
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div>
-              <p>NO ACTORS</p>
-            </div>
-          )}
-        </div>
-      </React.Fragment>
+        {!!this.state.actors.length ? (
+          <div className="gridActor">
+            {this.state.actors.map(function(item, key) {
+              return (
+                <div key={key}>
+                  <Actors actor={item} />
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            <p>Actor not find</p>
+          </div>
+        )}
+      </div>
     );
   }
 }
