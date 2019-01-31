@@ -5,11 +5,10 @@ import './InscriptionForm.css';
 
 export default class InscriptionForm extends Component {
   state = {
-    nom: '',
-    prenom: '',
+    name: '',
     email: '',
-    password: '',
-    confirmedPassword: '',
+    pwd: '',
+    confirmedPwd: '',
   };
 
   handleInput = event => {
@@ -19,13 +18,25 @@ export default class InscriptionForm extends Component {
     });
   };
 
-  handleSubmit = () => {
-    alert(
-      this.state.nom +
-        this.state.prenom +
-        this.state.email +
-        this.state.password,
-    );
+  handleSubmit = event => {
+    event.preventDefault();
+    const FORM_DATA = new FormData(event.target);
+    let jsonObject = {};
+    for (const [key, value] of FORM_DATA.entries()) {
+      jsonObject[key] = value;
+    }
+
+    console.log(JSON.stringify(jsonObject));
+
+    fetch('http://localhost:4000/mymovies/inscription', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(jsonObject),
+      // mode: 'no-cors',
+    }).catch(err => console.log('fetch error ' + err.message));
   };
 
   render() {
@@ -33,22 +44,22 @@ export default class InscriptionForm extends Component {
       <Fragment>
         <BtnSlideBar />
         <Log />
-        <form className="displayFormInscripton">
+        <form className="displayFormInscripton" onSubmit={this.handleSubmit}>
           <h2 className="titleInscription">Inscription</h2>
           <input
             className="inputStyleInscription"
             type="text"
-            name="nom"
+            name="name"
             placeholder="Nom"
-            value={this.state.nom}
+            value={this.state.name}
             required
             onChange={this.handleInput}
           />
           <input
             className="inputStyleInscription"
             type="email"
-            name="prenom"
-            value={this.state.prenom}
+            name="email"
+            value={this.state.email}
             placeholder="E-mail"
             required
             onChange={this.handleInput}
@@ -56,8 +67,8 @@ export default class InscriptionForm extends Component {
           <input
             className="inputStyleInscription"
             type="password"
-            name="password"
-            value={this.state.password}
+            name="pwd"
+            value={this.state.pwd}
             placeholder="Password"
             required
             onChange={this.handleInput}
@@ -65,18 +76,19 @@ export default class InscriptionForm extends Component {
           <input
             className="inputStyleInscription"
             type="password"
-            name="confirmedPassword"
-            value={this.state.confirmedPassword}
+            name="confirmedPwd"
+            value={this.state.confirmedPwd}
             placeholder="Confirme password"
             required
             onChange={this.handleInput}
           />
-          <input
+          <button>S'inscrire</button>
+          {/* <input
             className="btnStyleInscription"
             type="submit"
-            value="S'identifier"
+            value="S'inscrire"
             onClick={this.handleSubmit}
-          />
+          /> */}
         </form>
       </Fragment>
     );
