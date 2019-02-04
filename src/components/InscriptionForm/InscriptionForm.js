@@ -82,7 +82,7 @@ export default class InscriptionForm extends Component {
             required
             onChange={this.handleInput}
           />
-          <button>S'inscrire</button>
+          <button class="btnSub">S'inscrire</button>
           {/* <input
             className="btnStyleInscription"
             type="submit"
