@@ -17,9 +17,28 @@ export default class LoginPage extends Component {
   };
 
   handleSubmit = event => {
-    alert('Log name : ' + this.state.logName + ' Pwd ' + this.state.logPwd);
+    console.log('ici');
+
     event.preventDefault();
-    this.setState({ logName: '', logPwd: '' });
+    const FORM_DATA = new FormData(event.target);
+    let jsonObject = {};
+    for (const [key, value] of FORM_DATA.entries()) {
+      jsonObject[key] = value;
+    }
+
+    fetch('http://localhost:4000/login', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(jsonObject),
+    })
+      .then(() => {
+        this.setState({ logName: '', logPwd: '' });
+        window.location.replace('http://localhost:3000/');
+      })
+      .catch(err => console.log('fetch error ' + err.message));
   };
 
   handleClose = () => {
@@ -31,7 +50,7 @@ export default class LoginPage extends Component {
       <React.Fragment>
         <BtnSlideBar />
 
-        <form className="formDisplay">
+        <form className="formDisplay" onSubmit={this.handleSubmit}>
           <h2 className="titleStyle">Connexion</h2>
           <input
             className="inputStyle"
@@ -49,12 +68,13 @@ export default class LoginPage extends Component {
             onChange={this.handleChange}
             placeholder="Mot de passe"
           />
-          <input
+          {/* <input
             className="submitStyle"
             type="submit"
             value="S'identifier"
             onClick={this.handleSubmit}
-          />
+          /> */}
+          <button className="btnSubmit">S'identifier</button>
           <Link to={`/mymovies/inscription`}>
             <div className="accountLink">S'inscrire ?</div>
           </Link>

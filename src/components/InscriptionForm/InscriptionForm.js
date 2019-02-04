@@ -26,8 +26,6 @@ export default class InscriptionForm extends Component {
       jsonObject[key] = value;
     }
 
-    console.log(JSON.stringify(jsonObject));
-
     fetch('http://localhost:4000/mymovies/inscription', {
       headers: {
         Accept: 'application/json',
@@ -35,8 +33,11 @@ export default class InscriptionForm extends Component {
       },
       method: 'POST',
       body: JSON.stringify(jsonObject),
-      // mode: 'no-cors',
-    }).catch(err => console.log('fetch error ' + err.message));
+    })
+      .then(() => {
+        window.location.replace('http://localhost:3000/');
+      })
+      .catch(err => console.log('fetch error ' + err.message));
   };
 
   render() {
@@ -83,12 +84,6 @@ export default class InscriptionForm extends Component {
             onChange={this.handleInput}
           />
           <button class="btnSub">S'inscrire</button>
-          {/* <input
-            className="btnStyleInscription"
-            type="submit"
-            value="S'inscrire"
-            onClick={this.handleSubmit}
-          /> */}
         </form>
       </Fragment>
     );

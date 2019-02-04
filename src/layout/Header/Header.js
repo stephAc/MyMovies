@@ -22,7 +22,7 @@ export default () => (
         </Link>
       </li>
       <li>
-        <Link to={`/film/login`}>
+        <Link to={`/login`}>
           <IoMdContact className="iconAvatar" />
         </Link>
       </li>
