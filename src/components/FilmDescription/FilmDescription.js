@@ -64,14 +64,13 @@ export default class FilmDescription extends Component {
           />
           <div className="childContainer">
             <p className="filmTitle">{this.state.film.title}</p>
-
-              Note :{' '}
-              <div className="noteStyle">
-                {this.state.film.vote_average}
-                /10
-              </div>
-              <br /> Date : {this.state.film.release_date}
-
+            <span>Note : </span>
+            <div className="noteStyle">
+              {this.state.film.vote_average}
+              /10
+            </div>
+            <br />
+            <p>Date : {this.state.film.release_date}</p>
             <br />
             <p>{this.state.film.overview}</p>
           </div>
