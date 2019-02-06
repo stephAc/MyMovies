@@ -21,14 +21,15 @@ export default () => (
         <MyContext.Consumer>
           {context => (
             <React.Fragment>
-              {context.state.log ? (
+              {/* {context.state.log ? (
                 <p style={{ color: 'white' }}>{context.state.name}</p>
               ) : (
                 <p style={{ color: 'white' }}>name</p>
-              )}
+              )} */}
+              <p style={{ color: 'white' }}>{context.state.name}</p>
 
-              <button onClick={() => context.logIn(true)}>logIn</button>
-              <button onClick={() => context.logOut(false)}>logOut</button>
+              {/* <button onClick={() => context.logIn(true)}>logIn</button>
+              <button onClick={() => context.logOut(false)}>logOut</button> */}
             </React.Fragment>
           )}
         </MyContext.Consumer>
