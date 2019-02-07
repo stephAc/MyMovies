@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Log.css';
 import { Link } from 'react-router-dom';
 import { IoIosClose } from 'react-icons/io';
+import MyContext from '../../contexts/context';
 export default class Log extends Component {
   state = {
     logName: '',
@@ -15,30 +16,28 @@ export default class Log extends Component {
     });
   };
 
-  handleSubmit = event => {
-    console.log('ici');
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   const FORM_DATA = new FormData(event.target);
+  //   let jsonObject = {};
+  //   for (const [key, value] of FORM_DATA.entries()) {
+  //     jsonObject[key] = value;
+  //   }
 
-    event.preventDefault();
-    const FORM_DATA = new FormData(event.target);
-    let jsonObject = {};
-    for (const [key, value] of FORM_DATA.entries()) {
-      jsonObject[key] = value;
-    }
-
-    fetch('http://localhost:4000/login', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(jsonObject),
-    })
-      .then(() => {
-        this.setState({ logName: '', logPwd: '' });
-        window.location.replace('http://localhost:3000/');
-      })
-      .catch(err => console.log('fetch error ' + err.message));
-  };
+  //   fetch('http://localhost:4000/login', {
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     },
+  //     method: 'POST',
+  //     body: JSON.stringify(jsonObject),
+  //   })
+  //     .then(() => {
+  //       this.setState({ logName: '', logPwd: '' });
+  //       window.location.replace('http://localhost:3000/');
+  //     })
+  //     .catch(err => console.log('fetch error ' + err.message));
+  // };
 
   handleClose = () => {
     document.getElementById('logForm').style.display = 'none';
@@ -54,34 +53,39 @@ export default class Log extends Component {
           </button>
         </h2>
 
-        <form onSubmit={this.handleSubmit}>
-          <input
-            className="styleBox"
-            type="text"
-            name="logName"
-            value={this.state.logName}
-            onChange={this.handleChange}
-            placeholder="Identifiant"
-          />
-          <input
-            className="styleBox"
-            type="password"
-            name="logPwd"
-            value={this.state.logPwd}
-            onChange={this.handleChange}
-            placeholder="Mot de passe"
-          />
-          {/* <input
+        <MyContext.Consumer>
+          {context => (
+            <form onSubmit={event => context.connexion(event)}>
+              {/* this.handleSubmit */}
+              <input
+                className="styleBox"
+                type="text"
+                name="logName"
+                value={this.state.logName}
+                onChange={this.handleChange}
+                placeholder="Identifiant"
+              />
+              <input
+                className="styleBox"
+                type="password"
+                name="logPwd"
+                value={this.state.logPwd}
+                onChange={this.handleChange}
+                placeholder="Mot de passe"
+              />
+              {/* <input
             className="btnSubmit"
             type="submit"
             value="S'identifier"
             onClick={this.handleSubmit}
           /> */}
-          <button className="btnSubmit">S'identifier</button>
-          <Link to={`/mymovies/inscription`}>
-            <div className="accountLink">S'inscrire ?</div>
-          </Link>
-        </form>
+              <button className="btnSubmit">S'identifier</button>
+              <Link to={`/mymovies/inscription`}>
+                <div className="accountLink">S'inscrire ?</div>
+              </Link>
+            </form>
+          )}
+        </MyContext.Consumer>
       </div>
     );
   }

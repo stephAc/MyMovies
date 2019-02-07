@@ -15,6 +15,15 @@ export class MyProvider extends Component {
     this.setState(() => ({
       name,
     }));
+    if (!this.state.log) {
+      this.setState(() => ({
+        log: true,
+      }));
+    } else {
+      this.setState(() => ({
+        log: false,
+      }));
+    }
   }
 
   logIn = log => {
@@ -26,6 +35,7 @@ export class MyProvider extends Component {
     this.setState({
       log,
     });
+    localStorage.clear();
   };
   connexion = event => {
     event.preventDefault();
