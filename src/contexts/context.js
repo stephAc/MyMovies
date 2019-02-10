@@ -12,16 +12,18 @@ export class MyProvider extends Component {
 
   componentDidMount() {
     let name = localStorage.getItem('name');
+    console.log(name);
     this.setState(() => ({
-      name,
+      name: name,
     }));
-    if (!this.state.log) {
+
+    if (name === null) {
       this.setState(() => ({
-        log: true,
+        log: false,
       }));
     } else {
       this.setState(() => ({
-        log: false,
+        log: true,
       }));
     }
   }
@@ -34,20 +36,14 @@ export class MyProvider extends Component {
   logOut = log => {
     this.setState({
       log,
+      name: '',
     });
     localStorage.clear();
+    window.location.replace('http://localhost:3000/');
   };
+
   connexion = event => {
     event.preventDefault();
-    if (!this.state.log) {
-      this.setState(() => ({
-        log: true,
-      }));
-    } else {
-      this.setState(() => ({
-        log: false,
-      }));
-    }
 
     const FORM_DATA = new FormData(event.target);
     let jsonObject = {};

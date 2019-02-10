@@ -13,3 +13,12 @@
             </React.Fragment>
           )}
         </MyContext.Consumer>
+
+        {/* <li>
+                      <p style={{ color: 'white' }}>{context.state.name}</p>
+                    </li>
+                    <li>
+                      <button onClick={() => context.logOut(false)}>
+                        logOut
+                      </button>
+                    </li> */}

@@ -24,15 +24,6 @@ export default class Header extends Component {
               <React.Fragment>
                 {context.state.log ? (
                   <React.Fragment>
-                    {/* <li>
-                      <p style={{ color: 'white' }}>{context.state.name}</p>
-                    </li>
-                    <li>
-                      <button onClick={() => context.logOut(false)}>
-                        logOut
-                      </button>
-                    </li> */}
-
                     <li>
                       <div className="dropdown">
                         <button onClick={this.dropMenu} className="dropbtn">
@@ -45,16 +36,37 @@ export default class Header extends Component {
                             className="subBtnMenu"
                             onClick={() => context.logOut(false)}
                           >
-                            logOut
+                            Déconnexion
                           </button>
-                          {/* <a href="#about">About</a>
-                          <a href="#contact">Contact</a> */}
+                          <Link
+                            to={`/moncompte`}
+                            style={{ textDecoration: 'none' }}
+                          >
+                            <button
+                              className="subBtnMenu"
+                              onClick={() => context.logOut(false)}
+                            >
+                              To watch
+                            </button>
+                          </Link>
+                          <Link
+                            to={`/login`}
+                            style={{ textDecoration: 'none' }}
+                          >
+                            <button
+                              className="subBtnMenu"
+                              onClick={() => context.logOut(false)}
+                            >
+                              Mon compte
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </li>
                   </React.Fragment>
                 ) : (
                   <React.Fragment>
+                    <script>console.log(context.state.log)</script>
                     <li>
                       <button className="btnStyle" onClick={handleConnexion}>
                         Connexion
