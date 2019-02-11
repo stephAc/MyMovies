@@ -4,7 +4,7 @@ import './FilmDescription.css';
 import Log from '../Login/Log';
 import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
 import Actors from '../Actors/Actors';
-import MyContext from '../../contexts/context'
+import MyContext from '../../contexts/context';
 
 export default class FilmDescription extends Component {
   state = {
@@ -45,8 +45,12 @@ export default class FilmDescription extends Component {
       });
   };
 
-  addFilm = (idUser) => {
-    const info = {"idUser": idUser, "idFilm": this.state.id}
+  addFilm = idUser => {
+    document.getElementById('addFilm').disabled = true;
+    document.getElementById('addFilm').innerHTML = 'Ajouté';
+    document.getElementById('addFilm').style.backgroundColor = 'Lime';
+    document.getElementById('addFilm').style.color = 'black';
+    const info = { idUser: idUser, idFilm: this.state.id };
     fetch('http://localhost:4000/addfilm', {
       headers: {
         Accept: 'application/json',
@@ -54,7 +58,7 @@ export default class FilmDescription extends Component {
       },
       method: 'PUT',
       body: JSON.stringify(info),
-    })
+    });
   };
 
   render() {
@@ -89,9 +93,17 @@ export default class FilmDescription extends Component {
             <MyContext.Consumer>
               {context => (
                 <React.Fragment>
-                  {context.state.log ? (  
-                    <button onClick={() => this.addFilm(context.state.idUser)}>To Watch +</button>
-                  ) : ""}
+                  {context.state.log ? (
+                    <button
+                      id="addFilm"
+                      className="btnAddFilm"
+                      onClick={() => this.addFilm(context.state.idUser)}
+                    >
+                      To Watch +
+                    </button>
+                  ) : (
+                    ''
+                  )}
                 </React.Fragment>
               )}
             </MyContext.Consumer>

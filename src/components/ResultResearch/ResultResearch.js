@@ -85,8 +85,6 @@ class ResultResearch extends Component {
         break;
       default:
     }
-
-    console.log(req);
   };
 
   render() {

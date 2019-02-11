@@ -51,6 +51,21 @@
   border: 1px solid black;
 }
 
+.btnAddFilm {
+  width: 100%;
+  background-color: gold;
+  border: none;
+  height: 40px;
+  box-shadow: 3px 3px black;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.btnAddFilm:active {
+  background-color: gray;
+  transform: translateY(4px);
+}
+
 @media screen and (max-width: 720px) {
   .container {
     flex-wrap: wrap;

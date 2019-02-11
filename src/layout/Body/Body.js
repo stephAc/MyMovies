@@ -9,6 +9,7 @@ import LoginPage from '../../components/LoginPage/LoginPage';
 import './Body.css';
 import InscriptionForm from '../../components/InscriptionForm/InscriptionForm';
 import SearchPage from '../../components/SearchPage/SearchPage';
+import ToWatch from '../../components/ToWatch/ToWatch';
 
 export default () => {
   return (
@@ -30,6 +31,7 @@ export default () => {
         />
         <Route exact path="/film/search" component={SearchPage} />
         <Route exact path="/mymovies/inscription" component={InscriptionForm} />
+        <Route exact path="/towatch/:id" component={ToWatch} />
       </Switch>
       <SideBar />
     </div>

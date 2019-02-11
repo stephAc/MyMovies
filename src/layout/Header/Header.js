@@ -19,6 +19,11 @@ export default class Header extends Component {
         <AppLogo />
         <SearchBar />
         <ul className="flexContainer">
+          <li>
+            <Link to={`/film/search`}>
+              <IoIosSearch className="iconAvatar" />
+            </Link>
+          </li>
           <MyContext.Consumer>
             {context => (
               <React.Fragment>
@@ -32,27 +37,17 @@ export default class Header extends Component {
                           <IoMdContact className="iconAvatarLog" />
                         </button>
                         <div id="myDropdown" className="dropdown-content">
-                         <Link
+                          <Link
+                            to={`/towatch/${context.state.idUser}`}
+                            style={{ textDecoration: 'none' }}
+                          >
+                            <button className="subBtnMenu">To watch</button>
+                          </Link>
+                          <Link
                             to={`/moncompte`}
                             style={{ textDecoration: 'none' }}
                           >
-                            <button
-                              className="subBtnMenu"
-                              onClick={() => context.logOut(false)}
-                            >
-                              To watch
-                            </button>
-                          </Link>
-                          <Link
-                            to={`/login`}
-                            style={{ textDecoration: 'none' }}
-                          >
-                            <button
-                              className="subBtnMenu"
-                              onClick={() => context.logOut(false)}
-                            >
-                              Mon compte
-                            </button>
+                            <button className="subBtnMenu">Mon compte</button>
                           </Link>
                           <button
                             className="subBtnMenu"
@@ -72,11 +67,6 @@ export default class Header extends Component {
                       </button>
                     </li>
                     <li>
-                      <Link to={`/film/search`}>
-                        <IoIosSearch className="iconAvatar" />
-                      </Link>
-                    </li>
-                    <li>
                       <Link to={`/login`}>
                         <IoMdContact className="iconAvatar" />
                       </Link>
@@ -86,7 +76,6 @@ export default class Header extends Component {
               </React.Fragment>
             )}
           </MyContext.Consumer>
-
           <li>
             <BtnHamburger />
           </li>
