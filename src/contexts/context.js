@@ -8,13 +8,15 @@ export class MyProvider extends Component {
   state = {
     name: '',
     log: false,
+    idUser:'',
   };
 
   componentDidMount() {
     let name = localStorage.getItem('name');
-    console.log(name);
+    let idUser = localStorage.getItem('idUser');
     this.setState(() => ({
-      name: name,
+      name,
+      idUser,
     }));
 
     if (name === null) {
@@ -37,6 +39,7 @@ export class MyProvider extends Component {
     this.setState({
       log,
       name: '',
+      idUser:'',
     });
     localStorage.clear();
     window.location.replace('http://localhost:3000/');
@@ -61,15 +64,14 @@ export class MyProvider extends Component {
     })
       .then(result => result.json())
       .then(result => {
-        this.setState(() => ({
-          name: result.name,
-        }));
-        console.log(this.state.name);
+        console.log(result);
         localStorage.setItem('name', result.name);
+        localStorage.setItem('idUser', result._id);
         window.location.replace('http://localhost:3000/');
       })
       .catch(err => console.log('fetch error ' + err.message));
   };
+
   render() {
     return (
       <MyContext.Provider

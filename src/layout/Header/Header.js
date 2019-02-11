@@ -32,13 +32,7 @@ export default class Header extends Component {
                           <IoMdContact className="iconAvatarLog" />
                         </button>
                         <div id="myDropdown" className="dropdown-content">
-                          <button
-                            className="subBtnMenu"
-                            onClick={() => context.logOut(false)}
-                          >
-                            Déconnexion
-                          </button>
-                          <Link
+                         <Link
                             to={`/moncompte`}
                             style={{ textDecoration: 'none' }}
                           >
@@ -60,13 +54,18 @@ export default class Header extends Component {
                               Mon compte
                             </button>
                           </Link>
+                          <button
+                            className="subBtnMenu"
+                            onClick={() => context.logOut(false)}
+                          >
+                            Déconnexion
+                          </button>
                         </div>
                       </div>
                     </li>
                   </React.Fragment>
                 ) : (
                   <React.Fragment>
-                    <script>console.log(context.state.log)</script>
                     <li>
                       <button className="btnStyle" onClick={handleConnexion}>
                         Connexion

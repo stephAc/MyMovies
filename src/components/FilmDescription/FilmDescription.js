@@ -4,6 +4,7 @@ import './FilmDescription.css';
 import Log from '../Login/Log';
 import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
 import Actors from '../Actors/Actors';
+import MyContext from '../../contexts/context'
 
 export default class FilmDescription extends Component {
   state = {
@@ -44,6 +45,18 @@ export default class FilmDescription extends Component {
       });
   };
 
+  addFilm = (idUser) => {
+    const info = {"idUser": idUser, "idFilm": this.state.id}
+    fetch('http://localhost:4000/addfilm', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'PUT',
+      body: JSON.stringify(info),
+    })
+  };
+
   render() {
     return (
       <div>
@@ -73,6 +86,15 @@ export default class FilmDescription extends Component {
             <p>Date : {this.state.film.release_date}</p>
             <br />
             <p>{this.state.film.overview}</p>
+            <MyContext.Consumer>
+              {context => (
+                <React.Fragment>
+                  {context.state.log ? (  
+                    <button onClick={() => this.addFilm(context.state.idUser)}>To Watch +</button>
+                  ) : ""}
+                </React.Fragment>
+              )}
+            </MyContext.Consumer>
           </div>
         </div>
         {!!this.state.actors.length ? (

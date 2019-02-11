@@ -54,7 +54,6 @@ export default class LoginPage extends Component {
             <form
               className="formDisplay"
               onSubmit={event => context.connexion(event)}
-              // this.handleSubmit
             >
               <h2 className="titleStyle">Connexion</h2>
               <input
