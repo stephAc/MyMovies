@@ -25,6 +25,7 @@ export default class FilmDescription extends Component {
   }
 
   getRequestFilm = requestFilm => {
+    console.log(requestFilm);
     fetch(requestFilm)
       .then(result => result.json())
       .then(result => {
@@ -47,7 +48,7 @@ export default class FilmDescription extends Component {
 
   addFilm = idUser => {
     document.getElementById('addFilm').disabled = true;
-    document.getElementById('addFilm').innerHTML = 'Ajouté';
+    document.getElementById('addFilm').innerHTML = 'Ajouté !';
     document.getElementById('addFilm').style.backgroundColor = 'Lime';
     document.getElementById('addFilm').style.color = 'black';
     const info = { idUser: idUser, idFilm: this.state.id };

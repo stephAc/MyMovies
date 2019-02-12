@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Poster from '../Poster/Poster';
 import { API_URL, API_KEY } from '../DataConfig';
+import Poster from '../Poster/Poster';
 import Log from '../Login/Log';
 import './ToWatch.css';
 import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
@@ -15,7 +15,6 @@ class ToWatch extends Component {
   };
 
   componentDidMount() {
-    console.log('did mount ' + this.props.match.params.id);
     this.setState(
       () => ({
         id: this.props.match.params.id,
@@ -25,14 +24,11 @@ class ToWatch extends Component {
   }
 
   fetchData = () => {
-    console.log('fetchData ' + this.state.id);
     let req = `http://localhost:4000/towatchuserfilm/${this.state.id}`;
     fetch(req, { mode: 'cors' })
       .then(result => result.json())
       .then(result => {
-        console.log(result);
-
-        this.fetchFilm(result);
+        this.fetchFilm(result.reverse());
       })
       .catch(function(error) {
         console.log('Request failed', error);
@@ -40,21 +36,16 @@ class ToWatch extends Component {
   };
 
   fetchFilm = res => {
-    console.log('fetchFilm ' + res);
-
     res.forEach(filmId => {
       const requestFilm = `${API_URL}movie/${filmId}${API_KEY}&language=en-US`;
-      console.log('req: ' + requestFilm);
       fetch(requestFilm)
         .then(result => result.json())
         .then(result => {
           this.setState(prevState => ({
-            movie: [...prevState.movie, ...result.results],
+            movie: [...prevState.movie, result],
           }));
         });
     });
-
-    console.log('movie: ' + this.state.movie[0]);
   };
 
   render() {
@@ -63,17 +54,20 @@ class ToWatch extends Component {
         <Log />
         <BtnSlideBar />
         {!!this.state.movie.length ? (
-          <div className="grid">
-            {this.state.movie.map(function(item, key) {
-              return (
-                <div key={key}>
-                  <Poster film={item} />
-                </div>
-              );
-            })}
+          <div className="displayPage">
+            <h1 className="titleWatch">My To Watch List</h1>
+            <div className="gridWatch">
+              {this.state.movie.map(function(item, key) {
+                return (
+                  <div key={key}>
+                    <Poster film={item} />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         ) : (
-          <div className="centerDiv">
+          <div className="centerDivWatch">
             <img
               src="/pics/error.png"
               alt="Film not found"
