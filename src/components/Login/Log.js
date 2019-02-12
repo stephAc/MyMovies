@@ -16,29 +16,6 @@ export default class Log extends Component {
     });
   };
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   const FORM_DATA = new FormData(event.target);
-  //   let jsonObject = {};
-  //   for (const [key, value] of FORM_DATA.entries()) {
-  //     jsonObject[key] = value;
-  //   }
-
-  //   fetch('http://localhost:4000/login', {
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //     body: JSON.stringify(jsonObject),
-  //   })
-  //     .then(() => {
-  //       this.setState({ logName: '', logPwd: '' });
-  //       window.location.replace('http://localhost:3000/');
-  //     })
-  //     .catch(err => console.log('fetch error ' + err.message));
-  // };
-
   handleClose = () => {
     document.getElementById('logForm').style.display = 'none';
   };
@@ -56,7 +33,6 @@ export default class Log extends Component {
         <MyContext.Consumer>
           {context => (
             <form onSubmit={event => context.connexion(event)}>
-              {/* this.handleSubmit */}
               <input
                 className="styleBox"
                 type="text"
@@ -73,12 +49,6 @@ export default class Log extends Component {
                 onChange={this.handleChange}
                 placeholder="Mot de passe"
               />
-              {/* <input
-            className="btnSubmit"
-            type="submit"
-            value="S'identifier"
-            onClick={this.handleSubmit}
-          /> */}
               <button className="btnSubmit">S'identifier</button>
               <Link to={`/mymovies/inscription`}>
                 <div className="accountLink">S'inscrire ?</div>

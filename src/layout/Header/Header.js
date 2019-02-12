@@ -44,7 +44,7 @@ export default class Header extends Component {
                             <button className="subBtnMenu">To watch</button>
                           </Link>
                           <Link
-                            to={`/moncompte`}
+                            to={`/moncompte/${context.state.idUser}`}
                             style={{ textDecoration: 'none' }}
                           >
                             <button className="subBtnMenu">Mon compte</button>

@@ -10,6 +10,7 @@ import './Body.css';
 import InscriptionForm from '../../components/InscriptionForm/InscriptionForm';
 import SearchPage from '../../components/SearchPage/SearchPage';
 import ToWatch from '../../components/ToWatch/ToWatch';
+import Account from '../../components/Account/Account';
 
 export default () => {
   return (
@@ -18,6 +19,7 @@ export default () => {
         <Route exact path="/" component={GridFilmHome} />
         {/* <Route exact path="/connexion" component={Log} /> */}
         <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/moncompte/:id" component={Account} />
         <Route
           exact
           path="/film/description/:idFilm"

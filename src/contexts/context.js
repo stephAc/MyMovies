@@ -8,7 +8,7 @@ export class MyProvider extends Component {
   state = {
     name: '',
     log: false,
-    idUser:'',
+    idUser: '',
   };
 
   componentDidMount() {
@@ -39,10 +39,23 @@ export class MyProvider extends Component {
     this.setState({
       log,
       name: '',
-      idUser:'',
+      idUser: '',
     });
     localStorage.clear();
     window.location.replace('http://localhost:3000/');
+  };
+
+  deleteUser = () => {
+    // let req = `http://localhost:4000/userinfo/${this.state.id}`;
+    // fetch(req, { mode: 'cors' })
+    //   .then(result => result.json())
+    //   .then(result => {
+    //     this.setState(() => ({
+    //       name: result[0],
+    //       email: result[1],
+    //     }));
+    //   });
+    // this.logOut(true);
   };
 
   connexion = event => {
@@ -64,9 +77,8 @@ export class MyProvider extends Component {
     })
       .then(result => result.json())
       .then(result => {
-        console.log(result);
-        localStorage.setItem('name', result.name);
-        localStorage.setItem('idUser', result._id);
+        localStorage.setItem('name', result[0]);
+        localStorage.setItem('idUser', result[1]);
         window.location.replace('http://localhost:3000/');
       })
       .catch(err => console.log('fetch error ' + err.message));
@@ -80,6 +92,7 @@ export class MyProvider extends Component {
           logIn: this.logIn,
           logOut: this.logOut,
           connexion: this.connexion,
+          deleteUser: this.deleteUser,
         }}
       >
         {this.props.children}
