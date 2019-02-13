@@ -45,19 +45,6 @@ export class MyProvider extends Component {
     window.location.replace('http://localhost:3000/');
   };
 
-  deleteUser = () => {
-    // let req = `http://localhost:4000/userinfo/${this.state.id}`;
-    // fetch(req, { mode: 'cors' })
-    //   .then(result => result.json())
-    //   .then(result => {
-    //     this.setState(() => ({
-    //       name: result[0],
-    //       email: result[1],
-    //     }));
-    //   });
-    // this.logOut(true);
-  };
-
   connexion = event => {
     event.preventDefault();
 

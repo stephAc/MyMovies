@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Account.css';
 import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
-import MyContext from '../../contexts/context';
+import UserDeleteMsgBox from '../UserDeletMsgBox/UserDeletMsgBox';
 
 export default class Account extends Component {
   state = {
@@ -31,9 +31,18 @@ export default class Account extends Component {
       });
   };
 
+  deleteAction = () => {
+    let popUpDelete = document.getElementById('popUpDelete');
+
+    popUpDelete.style.display =
+      popUpDelete.style.display === 'none' || popUpDelete.style.display === ''
+        ? 'block'
+        : 'none';
+  };
+
   render() {
     return (
-      <React.Fragment>
+      <div style={{ width: '100%' }}>
         <BtnSlideBar />
         <div className="userContainer">
           <div className="userBack">
@@ -51,16 +60,14 @@ export default class Account extends Component {
               <br />
               <p>Email : {this.state.email}</p>
             </div>
-            <MyContext.Consumer>
-              {context => (
-                <button onClick={context.deleteUser} className="userDeleteBtn">
-                  Supprimer compte
-                </button>
-              )}
-            </MyContext.Consumer>
+
+            <button onClick={this.deleteAction} className="userDeleteBtn">
+              Supprimer compte
+            </button>
           </div>
         </div>
-      </React.Fragment>
+        <UserDeleteMsgBox />
+      </div>
     );
   }
 }

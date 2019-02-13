@@ -83,7 +83,7 @@ export default class InscriptionForm extends Component {
             required
             onChange={this.handleInput}
           />
-          <button class="btnSub">S'inscrire</button>
+          <button className="btnSub">S'inscrire</button>
         </form>
       </Fragment>
     );

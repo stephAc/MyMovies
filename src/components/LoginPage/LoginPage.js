@@ -16,31 +16,6 @@ export default class LoginPage extends Component {
     });
   };
 
-  // handleSubmit = event => {
-  //   console.log('ici');
-
-  //   event.preventDefault();
-  //   const FORM_DATA = new FormData(event.target);
-  //   let jsonObject = {};
-  //   for (const [key, value] of FORM_DATA.entries()) {
-  //     jsonObject[key] = value;
-  //   }
-
-  //   fetch('http://localhost:4000/login', {
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //     body: JSON.stringify(jsonObject),
-  //   })
-  //     .then(() => {
-  //       this.setState({ logName: '', logPwd: '' });
-  //       window.location.replace('http://localhost:3000/');
-  //     })
-  //     .catch(err => console.log('fetch error ' + err.message));
-  // };
-
   handleClose = () => {
     document.getElementById('logForm').style.display = 'none';
   };
