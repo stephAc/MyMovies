@@ -17,6 +17,7 @@ export default class UserDeleteMsgBox extends Component {
   };
 
   handleClose = () => {
+    this.setState({ mdp: '' });
     document.getElementById('popUpDelete').style.display = 'none';
   };
 
