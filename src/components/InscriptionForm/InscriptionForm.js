@@ -18,8 +18,19 @@ export default class InscriptionForm extends Component {
     });
   };
 
-  handleSubmit = event => {
+  checkForm = event => {
     event.preventDefault();
+    console.log(this.state.pwd + ' ' + this.state.confirmedPwd);
+    if (this.state.pwd === this.state.confirmedPwd) {
+      this.handleSubmit(event);
+    } else {
+      console.log('incorrect');
+    }
+  };
+
+  handleSubmit = event => {
+    console.log('handle');
+
     const FORM_DATA = new FormData(event.target);
     let jsonObject = {};
     for (const [key, value] of FORM_DATA.entries()) {
@@ -45,7 +56,7 @@ export default class InscriptionForm extends Component {
       <Fragment>
         <BtnSlideBar />
         <Log />
-        <form className="displayFormInscripton" onSubmit={this.handleSubmit}>
+        <form className="displayFormInscripton" onSubmit={this.checkForm}>
           <h2 className="titleInscription">Inscription</h2>
           <input
             className="inputStyleInscription"
