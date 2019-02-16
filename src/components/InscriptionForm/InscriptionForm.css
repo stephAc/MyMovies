@@ -31,10 +31,6 @@
   border-radius: 5px;
 }
 
-.inputStyleInscription:focus {
-  border-bottom: 1px solid blue;
-}
-
 .btnSub {
   border: none;
   text-decoration: none;
@@ -57,4 +53,46 @@
 .btnSub:active {
   background-color: gray;
   transform: translateY(4px);
+}
+
+.spanInfo {
+  display: block;
+  opacity: 0.3;
+  margin-top: 5px;
+}
+
+.obligatoire {
+  color: red;
+  margin-left: 5px;
+}
+
+.validInput {
+  width: 60%;
+  height: 40px;
+  text-align: center;
+  padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  border: 1px solid green;
+}
+
+.validInput + span + span {
+  display: none;
+}
+
+.invalidInput {
+  width: 60%;
+  height: 40px;
+  text-align: center;
+  padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  border: 1px solid red;
+}
+
+.invalidInput + span + span {
+  opacity: 1;
+  color: red;
 }
