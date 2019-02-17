@@ -11,9 +11,19 @@ export default class FilmDescription extends Component {
     id: this.props.match.params.idFilm,
     film: '',
     actors: '',
+    idUser: '',
   };
 
   componentDidMount() {
+    if (this.props.idUser) {
+      this.setState(
+        () => ({
+          idUser: this.props.idUser,
+        }),
+        () => this.fetchUserFilm(),
+      );
+    }
+
     const requestFilm = `${API_URL}movie/${
       this.state.id
     }${API_KEY}&language=en-US`;
@@ -34,11 +44,30 @@ export default class FilmDescription extends Component {
       });
   };
 
+  fetchUserFilm = () => {
+    let req = `http://localhost:4000/towatchuserfilm/${this.state.idUser}`;
+    fetch(req, { mode: 'cors' })
+      .then(result => result.json())
+      .then(result => {
+        this.checkUserList(result);
+      })
+      .catch(function(error) {
+        console.log('Request failed', error);
+      });
+  };
+
+  checkUserList = result => {
+    const resultat = result.find(res => res === this.state.id);
+    if (resultat) {
+      document.getElementById('addFilm').style.display = 'none';
+    }
+  };
+
   getRequestActors = requestActors => {
     fetch(requestActors)
       .then(result => result.json())
       .then(result => {
-        console.log(result.cast);
+        //console.log(result.cast);
         this.setState({
           actors: result.cast,
         });

@@ -69,7 +69,7 @@ export default class GridFilmHome extends Component {
     fetch(moviePopularRequest)
       .then(result => result.json())
       .then(result => {
-        console.log(result); //test data,
+        //console.log(result); //test data,
         this.setState(prevState => ({
           //on ajoute les nouveaux films aux films qu'on a déjà
           movies: [...prevState.movies, ...result.results],
