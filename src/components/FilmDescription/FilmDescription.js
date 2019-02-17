@@ -25,7 +25,6 @@ export default class FilmDescription extends Component {
   }
 
   getRequestFilm = requestFilm => {
-    console.log(requestFilm);
     fetch(requestFilm)
       .then(result => result.json())
       .then(result => {

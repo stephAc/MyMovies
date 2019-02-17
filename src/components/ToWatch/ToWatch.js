@@ -6,6 +6,7 @@ import './ToWatch.css';
 import ReturnTopPage from '../ReturnTopPage/ReturnTopPage';
 import { withRouter } from 'react-router-dom';
 import BtnSlideBar from '../BtnSlideBar/BtnSlideBar';
+import { Link } from 'react-router-dom';
 
 // export default
 class ToWatch extends Component {
@@ -68,13 +69,10 @@ class ToWatch extends Component {
           </div>
         ) : (
           <div className="centerDivWatch">
-            <img
-              src="/pics/error.png"
-              alt="Film not found"
-              height="300"
-              width="300"
-              style={{ borderRadius: 10 }}
-            />
+            <h1 className="titleWatch">My To Watch List</h1>
+            <Link to={`/`}>
+              <button className="findFilmBtn">Trouver des films</button>
+            </Link>
           </div>
         )}
 

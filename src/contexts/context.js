@@ -64,9 +64,13 @@ export class MyProvider extends Component {
     })
       .then(result => result.json())
       .then(result => {
-        localStorage.setItem('name', result[0]);
-        localStorage.setItem('idUser', result[1]);
-        window.location.replace('http://localhost:3000/');
+        if (!result) {
+          alert('Identifiant ou mot de passe incorrect');
+        } else {
+          localStorage.setItem('name', result[0]);
+          localStorage.setItem('idUser', result[1]);
+          window.location.replace('http://localhost:3000/');
+        }
       })
       .catch(err => console.log('fetch error ' + err.message));
   };
@@ -114,8 +118,15 @@ export class MyProvider extends Component {
       method: 'POST',
       body: JSON.stringify(jsonObject),
     })
-      .then(() => {
-        this.inscriptionConnexion(jsonObject);
+      .then(result => result.json())
+      .then(result => {
+        console.log(result);
+        if (!result) {
+          alert('Identifiant déjà pris');
+        } else {
+          console.log('inscription');
+          this.inscriptionConnexion(jsonObject);
+        }
       })
       .catch(err => console.log('fetch error ' + err.message));
   };
