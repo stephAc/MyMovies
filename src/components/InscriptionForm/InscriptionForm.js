@@ -47,7 +47,13 @@ export default class InscriptionForm extends Component {
             <form
               id="formInscription"
               className="displayFormInscripton"
-              onSubmit={event => context.checkForm(event)}
+              onSubmit={event =>
+                context.checkForm(
+                  event,
+                  this.state.pwd,
+                  this.state.confirmedPwd,
+                )
+              }
             >
               <h2 className="titleInscription">Inscription</h2>
               <div>

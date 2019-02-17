@@ -75,7 +75,7 @@ export class MyProvider extends Component {
       .catch(err => console.log('fetch error ' + err.message));
   };
 
-  checkForm = event => {
+  checkForm = (event, pwd, confirmedPwd) => {
     event.preventDefault();
     let conform = true;
     let inputs = document
@@ -89,11 +89,9 @@ export class MyProvider extends Component {
     }
 
     if (conform) {
-      if (this.state.pwd === this.state.confirmedPwd) {
+      if (pwd === confirmedPwd) {
         this.inscription(event);
       } else {
-        document.getElementById('inputPwdInscription').className =
-          'invalidInput';
         document.getElementById('inputConfirmedPwdInscription').className =
           'invalidInput';
         alert('Mot de passe non confirmé');
