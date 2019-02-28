@@ -37,6 +37,7 @@
   height: 40vh;
   background-color: white;
   box-shadow: 0px 3px 5px gray;
+  margin-bottom: 60px;
 }
 
 .userInfo > div > p {
@@ -47,6 +48,7 @@
 .userDeleteBtn {
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 10px;
   width: 60%;
   height: 40px;
   border: none;
@@ -55,6 +57,14 @@
   font-weight: bold;
   font-size: 20px;
   box-shadow: 0px 3px 5px black;
+}
+
+.modifierBtn {
+  display: inline-block;
+}
+
+.updateUserBtn {
+  display: inline-block;
 }
 
 @media screen and (max-width: 450px) {
